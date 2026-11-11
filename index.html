@@ -1,0 +1,1629 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>BLS 進階 1｜專業人員版叫叫 CABD・哽塞・特殊情境（AHA 2025）</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@700;900&family=Noto+Sans+TC:wght@400;500;700&family=IBM+Plex+Mono:wght@400;600&display=swap">
+<style>
+/* 主色：深靛藍（專業人員版），時間訊號橘只用於時間與編號；COR 語意色沿用 TCH-007 */
+:root{
+  --bg:#eff2f6; --surface:#ffffff; --sunk:#e6ebf1; --ink:#152030; --muted:#566273; --line:#d3dae3;
+  --accent:#1f4f8f; --accent-soft:#e1eaf7; --accent-ink:#173d70;
+  --time:#d64500;
+  --c1:#17733a; --c1-bg:#ddf2e4; --c2a:#7a5f00; --c2a-bg:#fbefc2; --c2b:#a8470a; --c2b-bg:#fde3cf; --c3:#a8201a; --c3-bg:#fadcd9;
+  --erc:#5b3f99; --erc-bg:#ece5f8; --tbd:#a8201a;
+  --f-display:"Noto Serif TC","Noto Sans TC",serif;
+  --f-body:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0d1218; --surface:#141b24; --sunk:#1a2430; --ink:#e3e9f0; --muted:#9aa8b8; --line:#2a3644;
+  --accent:#8db5ef; --accent-soft:#18263a; --accent-ink:#a9c8f5; --time:#ff8a4c;
+  --c1:#7fd9a0; --c1-bg:#163322; --c2a:#f2d36b; --c2a-bg:#33290b; --c2b:#ffad73; --c2b-bg:#3a2210; --c3:#ff8a80; --c3-bg:#3d1714;
+  --erc:#c7b2f2; --erc-bg:#2a2140; --tbd:#ff8a80; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0d1218; --surface:#141b24; --sunk:#1a2430; --ink:#e3e9f0; --muted:#9aa8b8; --line:#2a3644;
+  --accent:#8db5ef; --accent-soft:#18263a; --accent-ink:#a9c8f5; --time:#ff8a4c;
+  --c1:#7fd9a0; --c1-bg:#163322; --c2a:#f2d36b; --c2a-bg:#33290b; --c2b:#ffad73; --c2b-bg:#3a2210; --c3:#ff8a80; --c3-bg:#3d1714;
+  --erc:#c7b2f2; --erc-bg:#2a2140; --tbd:#ff8a80; color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.75;-webkit-font-smoothing:antialiased;padding-bottom:env(safe-area-inset-bottom)}
+a{color:var(--accent-ink)}
+h1,h2,h3{font-family:var(--f-display);line-height:1.3;margin:0;text-wrap:balance}
+h2{font-size:1.65em;font-weight:900}
+h3{font-size:1.2em;font-weight:700;margin-top:2em;padding-top:.4em}
+h4{margin:0 0 .3em;font-size:.95em}
+p{margin:.55em 0;max-width:72ch}
+ul,ol{padding-left:1.25em}
+li{margin:.25em 0}
+.mono{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+.wrap{display:grid;grid-template-columns:230px minmax(0,1fr);gap:40px;max-width:1220px;margin:0 auto;padding-inline:24px}
+@media (max-width:980px){.wrap{grid-template-columns:minmax(0,1fr);gap:0;padding-inline:14px}}
+
+/* top bar */
+.topbar{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top)}
+.topbar-in{max-width:1220px;margin:0 auto;padding:10px 24px;display:flex;align-items:center;gap:12px}
+@media (max-width:980px){.topbar-in{padding-inline:14px}}
+.brand{font-family:var(--f-display);font-weight:900;white-space:nowrap}
+.brand small{font-family:var(--f-mono);font-weight:400;color:var(--muted);margin-left:8px;font-size:.72em}
+.tools{margin-left:auto;display:flex;gap:6px}
+.btn{font:inherit;font-size:.8em;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:4px 12px;cursor:pointer;white-space:nowrap}
+.btn[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.chipnav{display:none;overflow-x:auto;gap:6px;padding:0 14px 10px;scrollbar-width:none}
+.chipnav::-webkit-scrollbar{display:none}
+.chipnav a{flex:none;font-size:.8em;text-decoration:none;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:3px 11px}
+.chipnav a.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+@media (max-width:980px){.chipnav{display:flex}}
+
+/* side rail */
+.rail{position:sticky;top:70px;align-self:start;max-height:calc(100vh - 90px);overflow:auto;padding-block:28px}
+.rail ol{list-style:none;margin:0;padding:0}
+.rail li{margin:0}
+.rail a{display:grid;grid-template-columns:30px 1fr;gap:4px;text-decoration:none;color:var(--muted);font-size:.88em;padding:5px 8px;border-radius:8px;line-height:1.4}
+.rail a span{font-family:var(--f-mono);font-size:.85em;color:var(--time);opacity:.85}
+.rail a.sub{padding-left:22px;font-size:.82em}
+.rail a:hover{color:var(--ink);background:var(--sunk)}
+.rail a.on{color:var(--ink);background:var(--surface);box-shadow:inset 3px 0 0 var(--accent)}
+@media (max-width:980px){.rail{display:none}}
+main{min-width:0;padding-block:24px 120px}
+
+/* hero */
+.kicker{font-family:var(--f-mono);font-size:.76em;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-ink)}
+.hero h1{font-size:clamp(1.9em,5vw,3.1em);font-weight:900;margin-top:.15em}
+.lede{color:var(--muted);font-size:1.06em;max-width:62ch}
+.legend{display:flex;flex-wrap:wrap;gap:6px;margin:14px 0 4px;align-items:center;font-size:.82em;color:var(--muted)}
+.cite{font-size:.8em;color:var(--muted);margin-top:12px;border-top:1px dashed var(--line);padding-top:10px}
+.cite p{margin:.2em 0;max-width:none}
+
+/* pills & tags */
+.pill{display:inline-flex;align-items:center;gap:4px;border-radius:999px;padding:1px 9px;font-size:.78em;font-weight:700;white-space:nowrap;font-family:var(--f-body)}
+.p1{background:var(--c1-bg);color:var(--c1)} .p2a{background:var(--c2a-bg);color:var(--c2a)} .p2b{background:var(--c2b-bg);color:var(--c2b)} .p3{background:var(--c3-bg);color:var(--c3)}
+.tag{display:inline-block;font-size:.72em;font-weight:700;border-radius:6px;padding:0 7px;margin-left:4px;vertical-align:1px;white-space:nowrap;font-family:var(--f-body);line-height:1.7}
+.t-sup{background:var(--sunk);color:var(--muted);border:1px solid var(--line)}
+.t-algo{background:var(--accent-soft);color:var(--accent-ink)}
+.t-erc{background:var(--erc-bg);color:var(--erc)}
+.t-other{background:var(--sunk);color:var(--ink);border:1px solid var(--line)}
+.t-conv{background:transparent;color:var(--muted);border:1px dashed var(--muted)}
+.t-tbd{background:transparent;color:var(--tbd);border:1px dashed var(--tbd)}
+.t-new{background:var(--c3-bg);color:var(--c3)}
+.t-upd{background:var(--c2a-bg);color:var(--c2a)}
+
+/* sections */
+section.ch{padding-top:54px}
+.chhead{display:flex;align-items:baseline;gap:14px;border-bottom:2px solid var(--ink);padding-bottom:8px;margin-bottom:12px}
+.chhead .num{font-family:var(--f-mono);font-weight:600;color:var(--time)}
+.chhead .min{margin-left:auto;font-family:var(--f-mono);font-size:.8em;color:var(--time);white-space:nowrap}
+.say{background:var(--sunk);border-radius:10px;padding:10px 16px;margin:12px 0;font-weight:500}
+.say::before{content:"一句話";display:block;font-size:.7em;letter-spacing:.14em;color:var(--muted);font-weight:700}
+.warn{border-left:4px solid var(--c3);background:var(--c3-bg);color:var(--ink);border-radius:0 10px 10px 0;padding:8px 14px;margin:12px 0;font-size:.92em}
+.warn b{color:var(--c3)}
+.info{border-left:4px solid var(--accent);background:var(--accent-soft);border-radius:0 10px 10px 0;padding:8px 14px;margin:12px 0;font-size:.92em}
+
+/* two columns: 指引說 / 課堂怎麼教 */
+.duo{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:14px;margin:14px 0}
+@media (max-width:860px){.duo{grid-template-columns:minmax(0,1fr)}}
+.duo>div{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 16px;min-width:0}
+.duo>.c{border-style:dashed;background:color-mix(in srgb,var(--surface) 70%,var(--accent-soft))}
+.duo>div>h4{font-family:var(--f-mono);font-size:.74em;letter-spacing:.14em;color:var(--muted);text-transform:uppercase;border-bottom:1px solid var(--line);padding-bottom:4px;margin-bottom:8px}
+.duo>.g>h4::before{content:"▍";color:var(--c1)}
+.duo>.c>h4::before{content:"▍";color:var(--time)}
+.duo ul{margin:.3em 0}
+.act{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:8px 12px;margin:8px 0}
+.act b.t{display:block;font-size:.88em;color:var(--time)}
+
+/* recommendations */
+.recs{display:grid;gap:6px;margin:8px 0}
+.rec{display:grid;grid-template-columns:62px minmax(0,1fr);gap:10px;align-items:start;border-bottom:1px solid var(--line);padding:6px 0}
+.rec:last-child{border-bottom:0}
+.badge{display:flex;flex-direction:column;align-items:center;border-radius:7px;padding:4px 2px;text-align:center}
+.badge .cor{font-weight:800;font-size:.95em;line-height:1.15}
+.badge .loe{font-family:var(--f-mono);font-size:.68em;line-height:1.2}
+.k1 .badge{background:var(--c1-bg);color:var(--c1)} .k2a .badge{background:var(--c2a-bg);color:var(--c2a)}
+.k2b .badge{background:var(--c2b-bg);color:var(--c2b)} .k3 .badge{background:var(--c3-bg);color:var(--c3)}
+.rec .zh{font-size:.94em}
+.rec .ref{font-size:.72em;color:var(--muted);font-family:var(--f-mono)}
+.rec .en{display:none;font-size:.82em;color:var(--muted);margin-top:4px;line-height:1.5;border-left:2px solid var(--line);padding-left:8px}
+html.show-en .rec .en{display:block}
+
+/* v4: 專業人員版 vs 民眾版 */
+.lvh table{min-width:0;table-layout:fixed}
+.lvh thead th:first-child{width:16%}
+.lvh th[scope=row]{background:var(--sunk);font-size:.92em}
+.lvh thead th:nth-child(2){color:var(--muted)} .lvh thead th:nth-child(3){color:var(--c1)}
+.lvh .pill{margin-left:0}
+.lvh .nw{white-space:nowrap}
+.lvh-sum{font-weight:500}
+@media (max-width:760px){
+  .lvh table,.lvh tbody,.lvh tr,.lvh td,.lvh th{display:block;width:auto!important}
+  .lvh thead{display:none}
+  .lvh tr{border-bottom:2px solid var(--line)}
+  .lvh th[scope=row]{border-bottom:0}
+  .lvh td{border-bottom:1px dashed var(--line)}
+  .lvh td::before{content:attr(data-l);display:block;font-family:var(--f-mono);font-size:.74em;font-weight:700;color:var(--muted);margin-bottom:2px}
+}
+/* v3: 中文流程圖 */
+.zhflow a{display:block;cursor:zoom-in}
+.zoomhint{display:none;margin:6px 0 0;font-size:.8em;color:#4a5560;text-align:center}
+@media (max-width:760px){.zoomhint{display:block}}
+.enorig{margin-top:10px;border-top:1px dashed var(--line);padding-top:8px}
+.enorig summary{cursor:pointer;font-size:.85em;color:#4a5560}
+.enorig img{margin-top:8px}
+.figcap-en{font-size:.78em;color:#4a5560;margin:6px 0 0;line-height:1.5}
+@media print{.zoomhint{display:none!important}}
+/* figures */
+figure{margin:12px 0;background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px;overflow:hidden}
+figure img{display:block;margin:0 auto;max-width:100%;height:auto}
+figcaption{font-size:.78em;color:#4a5560;margin-top:6px;line-height:1.5}
+.figrow{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+@media (max-width:760px){.figrow{grid-template-columns:minmax(0,1fr)}}
+.figrow figure{margin:0}
+.svgfig{background:var(--surface)}
+.svgfig figcaption{color:var(--muted)}
+
+/* timeline */
+.rundown{display:grid;gap:0;margin:14px 0;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--surface)}
+.blk{display:grid;grid-template-columns:110px minmax(0,1fr);border-bottom:1px solid var(--line)}
+.blk:last-child{border-bottom:0}
+.blk .t{font-family:var(--f-mono);font-variant-numeric:tabular-nums;color:var(--time);padding:10px 12px;background:var(--sunk);font-size:.86em;line-height:1.4}
+.blk .t b{display:block;font-size:1.35em;color:var(--ink)}
+.blk .d{padding:10px 14px}
+.blk .d h4{font-size:1em;font-family:var(--f-display)}
+.blk .d ol{margin:.2em 0;font-size:.9em}
+.blk .d li span.mono{color:var(--time);font-size:.9em;margin-right:6px}
+.bar{display:flex;height:30px;border-radius:8px;overflow:hidden;margin:10px 0 4px;font-size:.78em;font-weight:700;color:#fff}
+.bar div{display:flex;align-items:center;justify-content:center;white-space:nowrap;overflow:hidden}
+@media (max-width:600px){.blk{grid-template-columns:62px minmax(0,1fr)}.blk .t{padding:10px 8px}.bar{font-size:.68em}.blk .d ol{padding-left:1.1em}}
+
+/* updates */
+.upd{list-style:none;padding:0;margin:12px 0;counter-reset:u;display:grid;gap:6px}
+.upd li{counter-increment:u;position:relative;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:8px 12px 8px 48px;margin:0;font-size:.93em}
+.upd li::before{content:counter(u,decimal-leading-zero);position:absolute;left:12px;top:8px;font-family:var(--f-mono);font-weight:600;color:var(--time)}
+
+/* tables */
+.tw{overflow-x:auto;margin:12px 0;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:.88em;min-width:560px}
+caption{caption-side:top;text-align:left;font-family:var(--f-mono);font-size:.78em;color:var(--muted);padding:8px 12px 0}
+th,td{text-align:left;padding:7px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+thead th{background:var(--sunk);font-weight:700}
+tr:last-child td{border-bottom:0}
+
+/* flow (click to expand) */
+.flow{display:grid;gap:0;margin:12px 0}
+.fnode{background:var(--surface);border:1px solid var(--line);border-radius:10px}
+.fnode.dec{border:2px solid var(--accent)}
+.fnode.go{border:2px solid var(--ink)}
+.ftog{all:unset;box-sizing:border-box;display:flex;width:100%;gap:10px;align-items:baseline;padding:9px 14px;cursor:pointer;font-weight:700}
+.ftog .n{font-family:var(--f-mono);color:var(--time);font-size:.85em}
+.ftog::after{content:"＋";margin-left:auto;color:var(--accent);font-family:var(--f-mono)}
+.ftog[aria-expanded="true"]::after{content:"－"}
+.fbody{display:none;padding:0 14px 10px 14px;font-size:.9em;border-top:1px dashed var(--line)}
+.fbody[data-open="true"]{display:block}
+.farr{height:18px;display:flex;justify-content:center}
+.farr::before{content:"";width:2px;background:var(--muted)}
+.fbr{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+@media (max-width:760px){.fbr{grid-template-columns:minmax(0,1fr)}}
+.fbr .fnode .ftog{font-weight:500;font-size:.92em}
+.cond{font-size:.78em;color:var(--c3);font-weight:700;display:block}
+
+/* takeaways */
+.takeaways{list-style:none;padding:0;margin:12px 0;counter-reset:k;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+@media (max-width:760px){.takeaways{grid-template-columns:minmax(0,1fr)}}
+.takeaways li{counter-increment:k;display:grid;grid-template-columns:44px minmax(0,1fr);background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow:hidden;margin:0}
+.takeaways li::before{content:counter(k,decimal-leading-zero);background:var(--accent);color:#fff;font-family:var(--f-mono);font-weight:600;display:flex;align-items:center;justify-content:center}
+.takeaways li div{padding:8px 12px;font-size:.93em}
+.takeaways li small{display:block;color:var(--muted);font-size:.78em;margin-top:2px}
+
+.tw-local{border:2px dashed var(--time);border-radius:12px;padding:10px 16px;background:var(--surface)}
+.tw-local>p:first-child{font-weight:700;color:var(--time)}
+.footer{margin-top:60px;font-size:.8em;color:var(--muted);border-top:1px solid var(--line);padding-top:14px}
+.footer p{max-width:none}
+dl.abbr{display:grid;grid-template-columns:max-content 1fr;gap:2px 14px;font-size:.88em}
+dl.abbr dt{font-family:var(--f-mono);font-weight:600}
+dl.abbr dd{margin:0}
+ol.refs{font-size:.84em;padding-left:1.6em}
+ol.refs li{margin:.35em 0;word-break:break-word}
+
+/* v2: teamwork */
+.rail a.sub2{padding-left:22px;font-size:.82em;grid-template-columns:40px 1fr}
+.tm .rec .en{display:block}
+.tm .tag,.cmp .tag{white-space:normal}
+.rec .use{font-size:.84em;margin-top:5px;background:var(--sunk);border-radius:6px;padding:4px 8px}
+.rec .use b{color:var(--time);margin-right:6px;font-size:.92em}
+.kil .badge{background:var(--sunk);color:var(--ink);border:1px solid var(--line)}
+.kil .badge .cor{font-size:.78em}
+.tm h4.grp{font-family:var(--f-mono);font-size:.76em;letter-spacing:.12em;color:var(--muted);margin:18px 0 4px;border-bottom:1px solid var(--line);padding-bottom:3px}
+/* v4.5: 特殊情境「藥物／電擊」小段 */
+.drx{margin:18px 0 6px;border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:0 12px 12px 0;padding:10px 14px;background:var(--surface)}
+.drx>h4.drxh{font-size:1em;color:var(--accent-ink);margin:0 0 4px}
+.drx>p.drxn{font-size:.86em;color:var(--muted);margin:0 0 6px}
+.drx .duo{margin:8px 0 0}
+.lab{display:inline-block;font-size:.8em;font-weight:700;border-radius:6px;padding:1px 8px;margin:10px 0 2px;font-family:var(--f-body)}
+.lab-rx{background:var(--c1-bg);color:var(--c1)}
+.lab-sh{background:var(--c2a-bg);color:var(--c2a)}
+.lab-als{background:var(--sunk);color:var(--muted);border:1px solid var(--line)}
+.drx ul.dl{margin:.2em 0 .4em;padding-left:1.2em;font-size:.92em}
+.drx ul.dl li{margin:.2em 0}
+.drx .cmp table{font-size:.94em}
+/* v4.6: 全面以 AHA 為主；ERC 降成灰色小字參考 */
+.ercref{display:block;font-size:.8em;color:var(--muted);margin-top:4px;line-height:1.5}
+p.ercref{margin:2px 0 6px}
+.aha-na{display:inline-block;font-size:.78em;font-weight:700;color:var(--muted);border:1px dashed var(--muted);border-radius:6px;padding:0 6px;margin-right:4px;white-space:nowrap}
+.v46note{font-size:.86em;border-left:4px solid var(--c1);background:var(--surface);padding:6px 10px;border-radius:0 8px 8px 0;margin:10px 0}
+/* v4.4: ACLS PM 2025 Part 3 */
+.t-pm{background:var(--accent-soft);color:var(--accent-ink);border:1px solid var(--accent)}
+.pm-note{font-size:.86em;border:1px dashed var(--accent);border-radius:10px;padding:8px 12px;margin:10px 0;color:var(--ink)}
+.pm-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:10px 0}
+@media (max-width:860px){.pm-grid{grid-template-columns:minmax(0,1fr)}}
+.pm-grid>div{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:8px 12px;font-size:.88em;min-width:0}
+.pm-grid h5{margin:0 0 4px;font-size:.95em}
+.pm-grid h5 .e{font-family:var(--f-mono);font-size:.78em;color:var(--muted);display:block;font-weight:500}
+.pm-grid .cat{border-top:4px solid var(--accent)}
+.pm-grid ul{margin:.2em 0;padding-left:1.2em}
+.pm-tbl td:first-child{white-space:nowrap}
+.four{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:10px 0}
+@media (max-width:860px){.four{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.four>div{background:var(--surface);border:1px solid var(--line);border-top:4px solid var(--accent);border-radius:10px;padding:8px 10px;font-size:.88em;min-width:0}
+.four b{display:block;font-size:1.05em}
+.four .e{font-family:var(--f-mono);font-size:.74em;color:var(--muted);display:block;margin-bottom:4px}
+.fourcard{border:1px solid var(--line);border-radius:12px;padding:10px 14px;background:color-mix(in srgb,var(--surface) 70%,var(--accent-soft));margin:12px 0}
+.fourcard .q{font-size:.84em;color:var(--muted);border-left:2px solid var(--line);padding-left:8px;margin:6px 0}
+/* v2: AHA vs ERC */
+.cmp table{min-width:0;table-layout:fixed}
+.cmp thead th:first-child{width:14%}
+.cmp th[scope=row]{background:var(--sunk);font-size:.92em}
+.cmp thead th:nth-child(2){color:var(--c1)} .cmp thead th:nth-child(3){color:var(--erc)}
+.cmp td .en{display:block;font-size:.82em;color:var(--muted);margin-top:4px;border-left:2px solid var(--line);padding-left:8px;line-height:1.5}
+.cmp tr.teach td{background:color-mix(in srgb,var(--surface) 70%,var(--accent-soft))}
+@media (max-width:640px){
+  .cmp table,.cmp tbody,.cmp tr,.cmp td,.cmp th{display:block;width:auto!important}
+  .cmp thead{display:none}
+  .cmp caption{display:block;width:auto;padding-bottom:6px}
+  .cmp tr{border-bottom:2px solid var(--line)}
+  .cmp td::before{content:attr(data-l);display:block;font-family:var(--f-mono);font-size:.74em;font-weight:700;color:var(--muted);margin-bottom:2px}
+}
+
+@media print{
+  .topbar,.rail,.chipnav{display:none!important}
+  .wrap{display:block}
+  body{background:#fff;color:#000;font-size:11pt}
+  .fbody{display:block!important}
+  .ftog::after{content:""!important}
+  .rec .en{display:block}
+  section.ch{break-inside:auto;padding-top:20px}
+  .duo,.rec,figure,.blk{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-in">
+    <span class="brand">BLS 進階 1<small>AHA 2025・專業人員版</small></span>
+    <div class="tools">
+      <button class="btn" id="btnEn" aria-pressed="false" title="在每條建議下顯示英文原文">原文</button>
+      <button class="btn" id="btnTheme" aria-pressed="false" title="切換深色／淺色">深色</button>
+    </div>
+  </div>
+  <nav class="chipnav" id="chipnav" aria-label="章節（手機）"></nav>
+</header>
+
+<div class="wrap">
+<aside class="rail" aria-label="章節">
+  <ol id="railList">
+    <li><a href="#top"><span>00</span>開場</a></li>
+    <li><a href="#rundown"><span>01</span>125 分鐘怎麼排</a></li>
+    <li><a href="#new2025"><span>02</span>2025 改了什麼</a></li>
+    <li><a href="#bls"><span>03</span>叫叫 CABD（專業人員）</a></li>
+    <li><a class="sub" href="#check"><span>3.1</span>呼吸與脈搏</a></li>
+    <li><a class="sub sub2" href="#layvshcp"><span>3.1.1</span>專業人員版 vs 民眾版</a></li>
+    <li><a class="sub" href="#airway"><span>3.2</span>暢通呼吸道</a></li>
+    <li><a class="sub" href="#bvm"><span>3.3</span>甦醒球 BVM</a></li>
+    <li><a class="sub" href="#flow"><span>3.4</span>全流程 30:2</a></li>
+    <li><a class="sub" href="#ccf"><span>3.5</span>團隊與 CCF</a></li>
+    <li><a class="sub sub2" href="#teamwork"><span>3.5.1</span>指引怎麼說團隊合作</a></li>
+    <li><a class="sub sub2" href="#hpt"><span>3.5.2</span>ACLS PM 高效能團隊</a></li>
+    <li><a class="sub" href="#rescue"><span>3.6</span>有脈搏沒呼吸・鴉片類</a></li>
+    <li><a class="sub" href="#handoff"><span>3.7</span>交接</a></li>
+    <li><a href="#choking"><span>04</span>Choking 哽塞</a></li>
+    <li><a href="#special"><span>05</span>特殊情境</a></li>
+    <li><a class="sub" href="#tca"><span>5.1</span>創傷性心跳停止</a></li>
+    <li><a class="sub" href="#drown"><span>5.2</span>溺水</a></li>
+    <li><a class="sub" href="#preg"><span>5.3</span>孕婦心跳停止</a></li>
+    <li><a class="sub" href="#opioid"><span>5.4</span>鴉片類：naloxone</a></li>
+    <li><a class="sub" href="#anaph"><span>5.5</span>過敏性休克：腎上腺素筆</a></li>
+    <li><a class="sub" href="#elec"><span>5.6</span>觸電</a></li>
+    <li><a class="sub" href="#thump"><span>5.7</span>不能取代 AED 的手法</a></li>
+    <li><a href="#ten"><span>06</span>帶得走的十句話</a></li>
+    <li><a href="#tw"><span>07</span>台灣落地補充</a></li>
+    <li><a href="#refs"><span>08</span>縮寫與參考資料</a></li>
+  </ol>
+</aside>
+
+<main>
+<!-- ============ 00 HERO ============ -->
+<section class="hero" id="top" data-nav="開場">
+  <div class="kicker">BLS Advanced 1 · 2026-11-11（三）· 125 min · 醫師／護理師／EMT</div>
+  <h1>摸得到脈搏，才叫專業人員版</h1>
+  <p class="lede">一般民眾版的 CPR 只看「叫不醒、沒有正常呼吸」。專業人員多了三件事：10 秒內同時摸脈搏、會用甦醒球把氣給進去、懂得在團隊裡把按壓中斷壓到最短。今天再加上哽塞，以及三個會讓標準流程「轉彎」的情境：創傷、溺水、孕婦。</p>
+  <div class="legend" aria-label="證據等級圖例">
+    <span>建議強度（COR）：</span>
+    <span class="pill p1">1 強</span><span class="pill p2a">2a 中</span><span class="pill p2b">2b 弱</span><span class="pill p3">3 無益／有害</span>
+    <span>・LOE：A／B-R／B-NR／C-LD／C-EO</span>
+  </div>
+  <div class="legend">
+    <span>其他標籤：</span>
+    <span class="tag t-algo">演算法</span><span class="tag t-sup">支持文字</span><span class="ercref" style="display:inline;margin:0 4px">ERC 參考（灰字，非本課建議）</span><span class="aha-na">AHA 未提及</span><span class="tag t-other">非 AHA 來源</span><span class="tag t-conv">課堂慣例</span><span class="tag t-tbd">待查證</span>
+  </div>
+  <p class="v46note"><b>v4.6 全面以 AHA 為主</b>（2026-11-11）：AHA 和 ERC 說法不同時，主文與課堂建議一律照 AHA 的條文與 COR/LOE；ERC 降成灰色小字「ERC 參考」，不是本課建議。AHA 沒寫的地方標 <span class="aha-na">AHA 未提及</span>。</p>
+  <p style="font-size:.84em;color:var(--muted)">「支持文字」＝出自指引 recommendation-specific supportive text 或 synopsis，本身沒有 COR/LOE；「課堂慣例」＝教學習慣或解剖常識，不是指引條文；「待查證」＝我查不到原文，不要當作定論。按右上角「原文」可以在每條建議下顯示英文原句。</p>
+  <div class="cite">
+    <p><b>主要來源</b>：Kleinman ME, et al. Part 7: Adult Basic Life Support. <i>Circulation</i>. 2025;152(suppl 2):S448–S478. <a href="https://doi.org/10.1161/CIR.0000000000001369">doi:10.1161/CIR.0000000000001369</a></p>
+    <p>Cao D, et al. Part 10: Adult and Pediatric Special Circumstances of Resuscitation. <i>Circulation</i>. 2025;152(suppl 2):S578–S672. <a href="https://doi.org/10.1161/CIR.0000000000001380">doi:10.1161/CIR.0000000000001380</a></p>
+    <p>Joyner BL Jr, et al. Part 6: Pediatric Basic Life Support. <i>Circulation</i>. 2025;152(suppl 2):S424–S447. <a href="https://doi.org/10.1161/CIR.0000000000001370">doi:10.1161/CIR.0000000000001370</a>・其餘見第 08 節。</p>
+  </div>
+</section>
+
+<!-- ============ 01 RUNDOWN ============ -->
+<section class="ch" id="rundown" data-nav="時間">
+  <div class="chhead"><span class="num">01</span><h2>125 分鐘怎麼排</h2></div>
+  <div class="bar" role="img" aria-label="時間比例：BLS 65 分鐘、Choking 20 分鐘、特殊情境 40 分鐘，合計 125 分鐘">
+    <div style="flex:65;background:var(--accent)">叫叫 CABD 65′</div>
+    <div style="flex:20;background:#7a5f00">哽塞 20′</div>
+    <div style="flex:40;background:#a8470a">特殊情境 40′</div>
+  </div>
+  <p style="font-size:.9em;color:var(--muted)">三段 65＋20＋40＝125 分鐘。各段內部的細分是建議的分配，標了 <span class="tag t-conv">建議</span>。</p>
+  <div class="rundown">
+    <div class="blk"><div class="t"><b>65′</b>0–65</div><div class="d">
+      <h4>一、叫叫 CABD（專業人員版）</h4>
+      <ol>
+        <li><span class="mono">0–8</span>檢查呼吸＋脈搏：頸動脈位置、10 秒同時看＋摸 → <b>躺下互練</b></li>
+        <li><span class="mono">8–16</span>暢通呼吸道：壓額抬下巴、推下顎、疑頸椎怎麼辦</li>
+        <li><span class="mono">16–28</span>甦醒球 BVM：E-C 手勢、看胸部起伏、單人 vs 雙人</li>
+        <li><span class="mono">28–38</span>全流程：呼吸脈搏 → 呼吸道／口中可見異物 → 30:2</li>
+        <li><span class="mono">38–55</span>高品質 CPR 團隊、CCF、換手、<b>搬運毯任務</b></li>
+        <li><span class="mono">55–60</span>有脈搏沒正常呼吸（rescue breathing）、鴉片類</li>
+        <li><span class="mono">60–65</span>交接：影響預後的資訊、IMIST-AMBO 30 秒交班</li>
+      </ol><span class="tag t-conv">細分為建議</span></div></div>
+    <div class="blk"><div class="t"><b>20′</b>65–85</div><div class="d">
+      <h4>二、Choking（成人為主，附兒童／嬰兒差異）</h4>
+      <ol>
+        <li><span class="mono">65–70</span>輕度 vs 嚴重阻塞怎麼分</li>
+        <li><span class="mono">70–80</span>5 背擊 → 5 腹戳 循環互練；孕婦／抱不住改胸戳</li>
+        <li><span class="mono">80–85</span>倒下轉 CPR：先壓胸、開口看得到才拿、不盲掏；兒童／嬰兒差異</li>
+      </ol><span class="tag t-conv">細分為建議</span></div></div>
+    <div class="blk"><div class="t"><b>40′</b>85–125</div><div class="d">
+      <h4>三、特殊情境</h4>
+      <ol>
+        <li><span class="mono">85–98</span>創傷性心跳停止：可逆原因優先、什麼時候壓胸幫助有限</li>
+        <li><span class="mono">98–110</span>溺水：缺氧型心跳停止、通氣優先、先 CPR 再 AED</li>
+        <li><span class="mono">110–125</span>孕婦 OHCA：左推子宮、呼吸道優先、照常電擊、5 分鐘 resuscitative delivery</li>
+      </ol><span class="tag t-conv">細分為建議</span>
+      <p style="font-size:.86em;color:var(--muted);margin:.4em 0 0">5.1–5.3 各附「藥物與電擊」補充；5.4 鴉片類、5.5 過敏性休克、5.6 觸電、5.7 不能取代 AED 的手法為<b>延伸・備課用</b>，不佔上面 40 分鐘。<span class="tag t-conv">v4.5</span></p></div></div>
+  </div>
+</section>
+
+<!-- ============ 02 NEW ============ -->
+<section class="ch" id="new2025" data-nav="2025 新">
+  <div class="chhead"><span class="num">02</span><h2>2025 改了什麼（跟 2020 版比）</h2></div>
+  <p>這裡只列 AHA 官方《2025 Highlights》明確標示 <span class="tag t-new">New</span> 或 <span class="tag t-upd">Updated</span>、而且跟今天課程有關的項目。標「重點」的是 Highlights 列為 key issue、但沒有標 New／Updated 的。</p>
+  <ol class="upd">
+    <li><span class="tag t-upd">Updated</span> 成人嚴重異物哽塞：改成 <b>5 次背擊 → 5 次腹戳</b> 反覆循環，直到異物排出或失去反應。<span class="pill p1">1 B-NR</span> 並新增成人 FBAO 演算法。</li>
+    <li><span class="tag t-upd">Updated</span> 頭頸創傷：推下顎＋呼吸道輔助器還是打不開，<b>就改用壓額抬下巴</b>。<span class="pill p1">1 C-EO</span></li>
+    <li><span class="tag t-upd">Updated</span> 通氣量：給到「看得到胸部起伏」就好 <span class="pill p2a">2a C-LD</span>；通氣太少或太多都要避免 <span class="pill p3">3: Harm C-LD</span>。</li>
+    <li><span class="tag t-upd">Updated</span> 放進階呼吸道前，民眾與醫護都做 <b>30:2</b>。<span class="pill p2a">2a B-NR</span> 理由：30:2 才看得到胸部有沒有起伏。</li>
+    <li><span class="tag t-upd">Updated</span> 機械式 CPR <b>不建議常規使用</b> <span class="pill p3">3: No Benefit B-R</span>；<span class="tag t-new">New</span> 但在徒手 CPR 困難或危險的特定情境（例如運送中）可考慮 <span class="pill p2b">2b C-LD</span>。</li>
+    <li><span class="tag t-new">New</span> 貼 AED 貼片可以<b>調整胸罩位置</b>，不一定要脫掉。<span class="pill p2b">2b C-EO</span></li>
+    <li><span class="tag t-new">New</span> 肥胖病人 CPR 技術<b>跟一般人一樣</b>。<span class="pill p1">1 C-LD</span></li>
+    <li><span class="tag t-algo">演算法</span> 醫護版成人 BLS 演算法<b>加入鴉片類拮抗劑</b>（呼吸停止與心跳停止兩條路都有）。</li>
+    <li><span class="tag t-upd">Updated</span> 兒童嚴重哽塞改成<b>先背擊</b>（5 背擊＋5 腹戳）；嬰兒改用<b>單手掌根胸戳</b>（5 背擊＋5 胸戳）。</li>
+    <li><span class="tag t-upd">Updated</span> 孕婦：<i>perimortem cesarean delivery</i> 改稱 <b>resuscitative delivery</b>；一確認心跳停止就開始準備，<b>目標 5 分鐘內完成</b>。<span class="pill p1">1 B-NR</span></li>
+    <li><span class="tag t-new">New</span> 疑似鴉片類過量的心跳停止，可以給拮抗劑，但不能干擾高品質 CPR <span class="pill p2b">2b B-NR</span>；鴉片過量病人出院時要給 naloxone 並衛教 <span class="pill p1">1 C-LD</span>。</li>
+    <li><span class="tag t-new">New</span>（Part 4 系統照護）OHCA 多數應<b>優先在現場復甦</b>到持續 ROSC 再運送 <span class="pill p2a">2a B-NR</span>；院內急救小組要有明確分工 <span class="pill p2a">2a B-NR</span>。</li>
+    <li><span class="tag t-sup">重點</span> 病人軀幹高度大約在施救者<b>膝蓋</b>的位置來壓胸 <span class="pill p1">1 B-NR</span>；一般在<b>發現病人的地方</b>就地急救 <span class="pill p1">1 C-EO</span>。</li>
+  </ol>
+  <p class="cite">來源：AHA. Highlights of the 2025 AHA Guidelines for CPR and ECC（<a href="https://cpr.heart.org/-/media/CPR-Files/2025-documents-for-cpr-heart-edits-posting/Resuscitation-Science/252500_Hghlghts_2025ECCGuidelines.pdf">PDF</a>）；COR/LOE 對回 Part 4／6／7／10 建議表。</p>
+</section>
+
+<!-- ============ 03 BLS ============ -->
+<section class="ch" id="bls" data-nav="叫叫 CABD">
+  <div class="chhead"><span class="num">03</span><h2>叫叫 CABD：專業人員版</h2><span class="min">65 min</span></div>
+  <div class="say">叫（反應）、叫（求救＋AED）、C 壓胸、A 呼吸道、B 通氣、D 電擊。專業人員跟民眾版最大的差別，是判斷時要「同時摸脈搏」，以及通氣要真的給得進去。</div>
+  <figure class="zhflow"><a href="figs/fig1-hcp-algorithm-zh.svg" target="_blank" rel="noopener" title="點圖開新分頁看原尺寸"><img src="figs/fig1-hcp-algorithm-zh.svg" alt="2025 AHA 醫療專業人員成人 BLS 流程圖（中文教學翻譯）" loading="lazy" width="1180" height="1456" style="width:100%"></a>
+    <p class="zoomhint">🔍 點圖放大（開新分頁看原尺寸）</p>
+    <figcaption>2025 AHA 醫療專業人員成人 BLS 流程圖（中文教學翻譯，非官方譯本）</figcaption>
+    <details class="enorig"><summary>看英文原圖</summary>
+      <img src="figs/fig1-hcp-algorithm.png" alt="AHA 2025 醫護人員成人 BLS 演算法" loading="lazy" width="1174" height="1429">
+      <p class="figcap-en">Figure 1. Adult BLS Algorithm for Health Care Professionals. © 2025 American Heart Association，僅供教學使用。出自 Part 7。</p>
+    </details></figure>
+
+  <!-- 3.1 -->
+  <h3 id="check">3.1 檢查呼吸、檢查脈搏 <span class="mono" style="font-size:.7em;color:var(--time)">0–8′</span></h3>
+
+  <!-- v4: 3.1.1 專業人員版 vs 民眾版 -->
+  <h3 id="layvshcp">3.1.1 專業人員版 vs 民眾版：差在哪 <span class="mono" style="font-size:.7em;color:var(--time)">3.1 開場對照</span></h3>
+  <div class="tw lvh"><table>
+    <thead><tr><th scope="col">步驟</th><th scope="col">民眾版（Figure 2）</th><th scope="col">專業人員版（Figure 1）</th></tr></thead>
+    <tbody>
+        <tr><th scope="row">叫：判斷意識</th><td data-l="民眾版（Figure 2）">先確認現場安全，再看有沒有反應、有沒有正常呼吸（無呼吸或只有喘息）</td><td data-l="專業人員版（Figure 1）">同左（確認現場安全 → 檢查反應）</td></tr>
+        <tr><th scope="row">叫：求救</th><td data-l="民眾版（Figure 2）">打電話啟動緊急應變（手機擴音，邊講邊壓；<span class="nw"><span class="pill p1">1 C-LD</span>）</span>，拿 AED</td><td data-l="專業人員版（Figure 1）">呼叫附近幫手＋啟動緊急應變系統（院內 code）＋派人拿 AED／除顫器</td></tr>
+        <tr><th scope="row">判斷心跳停止</th><td data-l="民眾版（Figure 2）">不摸脈搏：無反應＋沒呼吸／只有喘息就當作心跳停止<span class="nw">（<span class="pill p1">1 C-LD</span>）</span></td><td data-l="專業人員版（Figure 1）">看呼吸同時摸脈搏，≤10 秒；沒「確定」摸到才當心跳停止<span class="nw">（<span class="pill p1">1 C-LD</span>）</span></td></tr>
+        <tr><th scope="row">有脈搏但呼吸異常</th><td data-l="民眾版（Figure 2）">無此分支</td><td data-l="專業人員版（Figure 1）">只給人工呼吸：每 6 秒 1 口（10 次/分），每 2 分鐘再摸脈搏</td></tr>
+        <tr><th scope="row">C 壓胸</th><td data-l="民眾版（Figure 2）">用力壓、快快壓、壓胸部正中；所有民眾都應壓胸<span class="nw">（<span class="pill p1">1 B-NR</span>）</span></td><td data-l="專業人員版（Figure 1）">同，並負責高品質 CPR 指標與 CCF</td></tr>
+        <tr><th scope="row">A 呼吸道</th><td data-l="民眾版（Figure 2）">流程圖未列；受過訓者可壓額抬下巴<span class="nw">（<span class="pill p1">1 C-EO</span>）</span></td><td data-l="專業人員版（Figure 1）">壓額抬下巴；疑頭頸外傷用推下顎、不後仰<span class="nw">（<span class="pill p1">1 C-EO</span>）</span>；可考慮口咽／鼻咽呼吸道</td></tr>
+        <tr><th scope="row">B 人工呼吸</th><td data-l="民眾版（Figure 2）">沒受訓：只壓胸；受過訓：可加人工呼吸<span class="nw">（<span class="pill p2a">2a B-R</span>）</span></td><td data-l="專業人員版（Figure 1）">一律 30:2；口對口、口對面罩或甦醒球皆可<span class="nw">（<span class="pill p2a">2a C-LD</span>）</span></td></tr>
+        <tr><th scope="row">D AED</th><td data-l="民眾版（Figure 2）">貼片、照語音，恢復 CPR 2 分鐘</td><td data-l="專業人員版（Figure 1）">判讀心律→可電擊電 1 次；電完或不電都立即恢復 CPR 2 分鐘</td></tr>
+        <tr><th scope="row">再檢查</th><td data-l="民眾版（Figure 2）">不摸脈搏，一直壓到有人接手</td><td data-l="專業人員版（Figure 1）">換手／判讀心律時摸脈搏 ≤10 秒，沒摸到立即再壓<span class="nw">（<span class="pill p1">1 C-LD</span>）</span></td></tr>
+        <tr><th scope="row">鴉片類過量</th><td data-l="民眾版（Figure 2）">有 naloxone 就給一劑，繼續 CPR</td><td data-l="專業人員版（Figure 1）">呼吸停止（有脈搏）有就給拮抗劑；心跳停止時考慮給</td></tr>
+        <tr><th scope="row">何時停</th><td data-l="民眾版（Figure 2）">流程圖未寫</td><td data-l="專業人員版（Figure 1）">直到進階救護接手或病人開始動</td></tr>
+    </tbody></table></div>
+  <p class="lvh-sum">總結：民眾版只看「有沒有反應、有沒有正常呼吸」，看到就壓；專業人員版多了「10 秒內摸脈搏」與「有脈搏沒正常呼吸→只給呼吸」這一支，人工呼吸從選配變成固定 30:2。</p>
+  <p style="font-size:.84em;color:var(--muted)">註：「叫叫CABD」為課堂口訣，AHA 流程圖不用此字樣。<span class="tag t-conv">課堂慣例</span><br>出處：AHA 2025 Part 7 Adult BLS <a href="https://cpr.heart.org/en/resuscitation-science/cpr-and-ecc-guidelines/adult-basic-life-support">https://cpr.heart.org/en/resuscitation-science/cpr-and-ecc-guidelines/adult-basic-life-support</a></p>
+  <figure><details class="enorig" style="margin-top:0;border-top:0;padding-top:0"><summary>看民眾版原圖</summary>
+      <img src="figs/fig2-lay-algorithm.png" alt="AHA 2025 民眾版成人 BLS 流程圖（Act Now. Save a Life.）" loading="lazy" width="943" height="1411" style="width:min(100%,520px)">
+      <p class="figcap-en">Figure 2. Adult BLS Algorithm for Lay Rescuers. © 2025 AHA，僅供教學使用。出自 Part 7。</p>
+    </details></figure>
+
+  <h4 style="margin-top:18px">3.1 本節：呼吸與脈搏怎麼判斷、怎麼練</h4>
+  <div class="duo">
+    <div class="g"><h4>指引說</h4>
+      <div class="recs">
+        <div class="rec k1"><div class="badge"><span class="cor">1</span><span class="loe">C-LD</span></div><div>
+          <div class="zh">成人沒有反應、沒有呼吸或只有喘息（gasping），醫護人員應摸脈搏<b>不超過 10 秒</b>；沒有「確定」摸到，就當作心跳停止。</div>
+          <div class="en">If an adult is unconscious/unresponsive, with absent or abnormal breathing (ie, only gasping), the healthcare professional should check for a pulse for no more than 10s and, if no definite pulse is felt, should assume the person is in cardiac arrest.</div>
+          <div class="ref">Part 7・Recognition of Cardiac Arrest #2</div></div></div>
+      </div>
+      <ul>
+        <li>演算法寫的是「看有沒有呼吸或只有喘息，<b>同時</b>摸脈搏（simultaneously）」。<span class="tag t-algo">演算法</span></li>
+        <li>醫護人員常常摸太久、也常判斷錯；沒有證據顯示看呼吸、咳嗽、動作比摸脈搏更準。<span class="tag t-sup">支持文字</span></li>
+        <li>瀕死呼吸（agonal breathing）在 OHCA 出現率可達 40%–60%，是民眾誤判「還有呼吸」的常見原因。<span class="tag t-sup">支持文字</span></li>
+        <li>對「沒有心跳停止的昏迷病人」壓胸，造成傷害的風險低；該壓沒壓的代價遠比較大。<span class="tag t-sup">支持文字</span></li>
+      </ul>
+    </div>
+    <div class="c"><h4>課堂怎麼教</h4>
+      <p><b>頸動脈在哪裡</b> <span class="tag t-conv">課堂慣例／解剖</span>：手指先找到喉結（甲狀軟骨），往施救者這一側滑進氣管與胸鎖乳突肌之間的凹溝，用 2–3 指輕摸；只摸一側。Part 7 沒有描述摸法，這段是解剖與教學習慣。</p>
+      <div class="act"><b class="t">練習｜躺下互練（焜哥大綱）</b>兩人一組，一人躺地當病人、一人跪旁邊。拍肩呼喊 → 呼叫幫手＋AED → 眼睛看胸口、手指摸頸動脈，<b>同時</b>做，口數 10 秒。換人。</div>
+      <div class="act"><b class="t">變化題</b>當病人的人演「偶爾喘一大口」→ 判定為「只有喘息」＝不正常呼吸 → 開始壓。<span class="tag t-conv">建議</span></div>
+      <p style="font-size:.9em">常見錯誤 <span class="tag t-conv">課堂慣例</span>：先看呼吸 10 秒、再摸脈 10 秒，變成 20 秒；用大拇指摸（摸到自己的脈搏）；兩側一起壓。</p>
+    </div>
+  </div>
+
+  <!-- 3.2 -->
+  <h3 id="airway">3.2 暢通呼吸道：壓額抬下巴、推下顎 <span class="mono" style="font-size:.7em;color:var(--time)">8–16′</span></h3>
+  <div class="duo">
+    <div class="g"><h4>指引說</h4>
+      <div class="recs">
+        <div class="rec k1"><div class="badge"><span class="cor">1</span><span class="loe">C-EO</span></div><div>
+          <div class="zh">沒有反應的成人、<b>不懷疑頸椎受傷</b>時，用<b>壓額抬下巴</b>打開呼吸道。</div>
+          <div class="en">For unresponsive adult patients, healthcare professionals and trained lay rescuers should open the airway by using a head tilt–chin lift maneuver when no cervical spine injury is suspected.</div>
+          <div class="ref">Part 7・Opening the Airway #1</div></div></div>
+        <div class="rec k1"><div class="badge"><span class="cor">1</span><span class="loe">C-EO</span></div><div>
+          <div class="zh">頭頸部創傷：受過訓練的施救者用<b>推下顎、不要把頭後仰</b>。</div>
+          <div class="en">In cases of head and neck trauma, trained rescuers should open the airway of an adult by using a jaw thrust without head extension.</div>
+          <div class="ref">Part 7・Airway After Head and Neck Trauma #1</div></div></div>
+        <div class="rec k1"><div class="badge"><span class="cor">1</span><span class="loe">C-EO</span></div><div>
+          <div class="zh">頭頸部創傷時，推下顎＋放呼吸道輔助器仍打不開，就<b>改用壓額抬下巴</b>。<span class="tag t-upd">Updated</span></div>
+          <div class="en">For an adult with head and neck trauma, if the airway cannot be opened with a jaw thrust and airway adjunct insertion, trained rescuers should open the airway by using a head tilt–chin lift.</div>
+          <div class="ref">Part 7・Airway After Head and Neck Trauma #2</div></div></div>
+        <div class="rec k2a"><div class="badge"><span class="cor">2a</span><span class="loe">C-LD</span></div><div>
+          <div class="zh">已知或懷疑顱底骨折、嚴重凝血異常：口咽呼吸道（OPA）優於鼻咽呼吸道（NPA）。</div>
+          <div class="en">When managing the airway of an adult with known or suspected basal skull fracture or severe coagulopathy, an oropharyngeal airway is preferred compared with a nasopharyngeal airway.</div>
+          <div class="ref">Part 7・Opening the Airway #2</div></div></div>
+        <div class="rec k2b"><div class="badge"><span class="cor">2b</span><span class="loe">C-EO</span></div><div>
+          <div class="zh">沒有咳嗽或嘔吐反射的昏迷成人，可考慮用 OPA／NPA 幫助通氣。</div>
+          <div class="en">The use of an airway adjunct (eg, oropharyngeal or nasopharyngeal airway) may be reasonable in unconscious (unresponsive) adult patients with no cough or gag reflex to facilitate delivery of ventilation.</div>
+          <div class="ref">Part 7・Opening the Airway #3</div></div></div>
+        <div class="rec k3"><div class="badge"><span class="cor">3</span><span class="loe">C-LD</span></div><div>
+          <div class="zh">心跳停止時<b>不建議常規壓環狀軟骨</b>（cricoid pressure）。<b>無益</b>。</div>
+          <div class="en">The routine use of cricoid pressure in adult cardiac arrest is not recommended. (3: No Benefit)</div>
+          <div class="ref">Part 7・Opening the Airway #4</div></div></div>
+        <div class="rec k3"><div class="badge"><span class="cor">3</span><span class="loe">C-LD</span></div><div>
+          <div class="zh">頭頸部創傷時，<b>一般民眾</b>不要用硬式頸圈做脊椎動作限制，可能有害；改用徒手固定。<b>有害</b>。</div>
+          <div class="en">In the setting of an adult with head and neck trauma, lay rescuers should not use rigid cervical devices for spinal motion restriction because their use by untrained rescuers may be harmful. (3: Harm)</div>
+          <div class="ref">Part 7・Airway After Head and Neck Trauma #3</div></div></div>
+      </div>
+      <p style="font-size:.9em">為什麼頸椎傷也可以後仰？「呼吸道暢通的重要性，大於進一步脊髓傷害的風險」。<span class="tag t-sup">支持文字</span></p>
+    </div>
+    <div class="c"><h4>課堂怎麼教</h4>
+      <figure style="margin-top:0"><img src="figs/fig4-head-tilt.png" alt="壓額抬下巴示意圖" loading="lazy" width="665" height="515"><figcaption>Part 7 Figure 4 Head tilt–chin lift。© 2025 AHA，僅供教學。</figcaption></figure>
+      <div class="act"><b class="t">練習｜兩種手法互換</b>同一組躺下互練：先做壓額抬下巴，再從病人頭側做推下顎（拇指放顴骨、其餘手指勾下顎角往上推）。<span class="tag t-conv">手法細節為課堂慣例</span></div>
+      <div class="act"><b class="t">情境卡</b>「從樓梯摔下、沒反應」→ 先推下顎 → 講師說「胸口還是沒起伏」→ 學員要能說出：放 OPA → 還不行就壓額抬下巴。<span class="tag t-conv">建議</span></div>
+      <p style="font-size:.9em">OPA 尺寸：嘴角量到耳垂或下顎角 <span class="tag t-conv">課堂慣例</span>（Part 7 沒寫量法）。</p>
+    </div>
+  </div>
+
+  <!-- 3.3 -->
+  <h3 id="bvm">3.3 甦醒球 BVM：E-C 手勢、通氣量、單人 vs 雙人 <span class="mono" style="font-size:.7em;color:var(--time)">16–28′</span></h3>
+  <div class="duo">
+    <div class="g"><h4>指引說</h4>
+      <div class="recs">
+        <div class="rec k2a"><div class="badge"><span class="cor">2a</span><span class="loe">C-LD</span></div><div>
+          <div class="zh">沒有進階呼吸道時，口對口、口對面罩、BVM 都可以。</div>
+          <div class="en">In adult patients in cardiac arrest without an advanced airway, it is reasonable to deliver breaths either by mouth-to-mouth, mouth-to-mask, or bag-mask ventilation.</div>
+          <div class="ref">Part 7・Fundamentals of Ventilation #1</div></div></div>
+        <div class="rec k2a"><div class="badge"><span class="cor">2a</span><span class="loe">C-LD</span></div><div>
+          <div class="zh">潮氣量給到<b>看得到胸部起伏</b>。<span class="tag t-upd">Updated</span></div>
+          <div class="en">When ventilating an adult patient in cardiac arrest, it is reasonable to give enough tidal volume to produce visible chest rise.</div>
+          <div class="ref">Part 7・Fundamentals of Ventilation #2</div></div></div>
+        <div class="rec k2a"><div class="badge"><span class="cor">2a</span><span class="loe">C-LD</span></div><div>
+          <div class="zh">BVM 由<b>兩人</b>做：一人用雙手打開呼吸道並扣緊面罩，另一人擠球。</div>
+          <div class="en">When delivering ventilations by bag mask for an adult in cardiac arrest, it is reasonable for 1 rescuer to use 2 hands to open the airway and seal the mask to the face while a second rescuer squeezes the bag.</div>
+          <div class="ref">Part 7・Fundamentals of Ventilation #3</div></div></div>
+        <div class="rec k2b"><div class="badge"><span class="cor">2b</span><span class="loe">C-LD</span></div><div>
+          <div class="zh">沒有進階呼吸道時，每一口約 <b>1 秒</b>。</div>
+          <div class="en">When providing breaths to an adult in cardiac arrest without an advanced airway, it may be reasonable to give each breath over 1 s.</div>
+          <div class="ref">Part 7・Fundamentals of Ventilation #4</div></div></div>
+        <div class="rec k3"><div class="badge"><span class="cor">3</span><span class="loe">C-LD</span></div><div>
+          <div class="zh">避免通氣不足（太少口、量太小）或過度通氣（太多口、量太大）。<b>有害</b>。<span class="tag t-upd">Updated</span></div>
+          <div class="en">When providing breaths to adult patients in cardiac arrest, rescuers should avoid hypoventilation (too few breaths or too little volume) or hyperventilation (too many breaths or too large a volume). (3: Harm)</div>
+          <div class="ref">Part 7・Fundamentals of Ventilation #5</div></div></div>
+        <div class="rec k2b"><div class="badge"><span class="cor">2b</span><span class="loe">C-LD</span></div><div>
+          <div class="zh">已放進階呼吸道：每 <b>6 秒 1 口</b>（每分鐘 10 次），同時持續壓胸。</div>
+          <div class="en">If an advanced airway is in place, it may be reasonable for the clinician to deliver 1 breath every 6 s (10 breaths/min) while continuous chest compressions are being performed.</div>
+          <div class="ref">Part 9 Adult ALS・Advanced Airway #9</div></div></div>
+      </div>
+      <ul style="font-size:.92em">
+        <li><b>E-C 手勢</b>：拇指與食指圍成 C 壓住面罩，其餘三指排成 E 勾住下顎骨下緣往上抬。單人用 BVM 時只能用單手法。<span class="tag t-sup">支持文字</span></li>
+        <li><b>雙手法＋推下顎優於單手 E-C</b>。單人時可改用雙手口對面罩。<span class="tag t-sup">支持文字</span></li>
+        <li>能看到胸部起伏的潮氣量，在一項插管成人研究約 362–406 mL（平均成人約 5–7 mL/kg）。<span class="tag t-sup">支持文字</span></li>
+        <li>用兒童尺寸的球漏氣多、量不足；成人尺寸的球與較高 ROSC 有關。<span class="tag t-sup">支持文字</span></li>
+        <li>ROC 資料：30:2 的停頓中，有效通氣不到一半；有效通氣比例低的病人，ROSC 與存活都較差。<span class="tag t-sup">支持文字</span></li>
+        <li>過度通氣會造成胃脹、嘔吐吸入、心輸出量下降。<span class="tag t-sup">支持文字</span></li>
+      </ul>
+    </div>
+    <div class="c"><h4>課堂怎麼教</h4>
+      <div class="act"><b class="t">練習｜單人 vs 雙人，誰的胸部有起來</b>同一具假人：先單人 E-C 給 2 口，再換雙人（一人雙手扣面罩＋推下顎、一人擠球）。旁邊同學只看一件事：胸口有沒有起來。<span class="tag t-conv">建議</span></div>
+      <div class="act"><b class="t">口訣</b>「擠 1 秒、看起伏、就放手」——看到起伏就停，不要擠到底。<span class="tag t-conv">課堂慣例</span></div>
+      <p style="font-size:.9em">接氧氣、氧氣流量、PEEP 閥：Part 7 沒有給 BLS 層級的具體數字，這堂課不教數字。<span class="tag t-tbd">待查證：若要教氧氣流量需另找來源</span></p>
+    </div>
+  </div>
+
+  <!-- 3.4 -->
+  <h3 id="flow">3.4 全流程：呼吸脈搏 → 呼吸道／口中異物 → 30:2 <span class="mono" style="font-size:.7em;color:var(--time)">28–38′</span></h3>
+  <p style="font-size:.9em;color:var(--muted)">點每一格看依據。列印時會自動全部展開。</p>
+  <div class="flow" id="hcpflow">
+    <div class="fnode"><button class="ftog" aria-expanded="false" aria-controls="f1"><span class="n">1</span>確認現場安全</button>
+      <div class="fbody" id="f1"><p>演算法第一格。<span class="tag t-algo">演算法</span></p></div></div>
+    <div class="farr"></div>
+    <div class="fnode"><button class="ftog" aria-expanded="false" aria-controls="f2"><span class="n">2</span>叫：拍肩呼喊 → 叫：求救、啟動急救系統、派人拿 AED</button>
+      <div class="fbody" id="f2"><p>Check for responsiveness・Shout for nearby help・Activate emergency response system・Send someone to get AED/defibrillator。<span class="tag t-algo">演算法</span></p>
+      <p>一個人時：先啟動急救系統，再立刻開始 CPR <span class="pill p1">1 B-NR</span>；有手機就開擴音同時做 <span class="pill p1">1 C-LD</span>。（這兩條在 Part 7 的民眾段落，Top 10 #2 寫的是 lone responder。）</p></div></div>
+    <div class="farr"></div>
+    <div class="fnode dec"><button class="ftog" aria-expanded="false" aria-controls="f3"><span class="n">3</span>10 秒內：看呼吸＋摸頸動脈（同時）</button>
+      <div class="fbody" id="f3"><p>沒有確定摸到脈搏就當心跳停止 <span class="pill p1">1 C-LD</span>。見 3.1。</p></div></div>
+    <div class="farr"></div>
+    <div class="fbr">
+      <div class="fnode"><button class="ftog" aria-expanded="false" aria-controls="f4a"><span class="cond">呼吸正常、有脈搏</span>監測到進階團隊接手</button>
+        <div class="fbody" id="f4a"><p>Monitor until advanced care arrives。<span class="tag t-algo">演算法</span></p></div></div>
+      <div class="fnode"><button class="ftog" aria-expanded="false" aria-controls="f4b"><span class="cond">呼吸不正常、有脈搏</span>每 6 秒 1 口、每 2 分鐘摸脈</button>
+        <div class="fbody" id="f4b"><p>沒脈搏就開始 CPR；疑鴉片類給拮抗劑（如 naloxone）。見 3.6。<span class="tag t-algo">演算法</span></p></div></div>
+      <div class="fnode go"><button class="ftog" aria-expanded="false" aria-controls="f4c"><span class="cond">沒呼吸／只有喘息、摸不到脈搏</span>開始 CPR</button>
+        <div class="fbody" id="f4c"><p>單人醫護人員從<b>壓胸</b>開始 <span class="pill p1">1 C-LD</span>；不論心因性或非心因性，都做壓胸＋通氣 <span class="pill p2a">2a C-LD</span>。</p></div></div>
+    </div>
+    <div class="farr"></div>
+    <div class="fnode go"><button class="ftog" aria-expanded="false" aria-controls="f5"><span class="n">4</span>C：30 下壓胸（5–6 cm、100–120 下／分、完全回彈）</button>
+      <div class="fbody" id="f5">
+        <p>深度至少 5 cm、避免超過 6 cm <span class="pill p1">1 B-NR</span>；速率 100–120／分 <span class="pill p2a">2a B-NR</span>；完全回彈、不要靠在胸口 <span class="pill p2a">2a C-LD</span>；壓與放時間約相等 <span class="pill p2b">2b C-EO</span>。</p>
+        <p>手放胸部中央（胸骨下半到下三分之一）<span class="pill p1">1 C-LD</span>；可考慮慣用手貼胸骨 <span class="pill p2b">2b C-LD</span>；軀幹高度約在施救者膝蓋 <span class="pill p1">1 B-NR</span>；硬的平面、仰躺 <span class="pill p2a">2a C-LD</span>；即時回饋裝置 <span class="pill p2a">2a B-R</span>。</p>
+        <p>俯臥時心跳停止：可以的話翻成仰躺再壓；不能安全翻身時，可考慮直接俯臥 CPR <span class="pill p2b">2b C-LD</span>。</p></div></div>
+    <div class="farr"></div>
+    <div class="fnode"><button class="ftog" aria-expanded="false" aria-controls="f6"><span class="n">5</span>A：打開呼吸道；口中看得到異物才拿</button>
+      <div class="fbody" id="f6"><p>壓額抬下巴／推下顎見 3.2。異物哽塞病人在 CPR 中，打開呼吸道時<b>移除看得到的異物</b> <span class="pill p1">1 C-EO</span>；<b>不要盲目用手指掏</b> <span class="pill p3">3: Harm C-LD</span>。</p></div></div>
+    <div class="farr"></div>
+    <div class="fnode"><button class="ftog" aria-expanded="false" aria-controls="f7"><span class="n">6</span>B：2 口通氣，每口約 1 秒，看胸部起伏</button>
+      <div class="fbody" id="f7"><p>停下來給 2 口、每口 1 秒 <span class="pill p2a">2a C-LD</span>；放進階呼吸道前做 30:2 <span class="pill p2a">2a B-NR</span>；沒有進階呼吸道時，醫護人員可考慮持續壓胸＋非同步通氣 <span class="pill p2b">2b C-LD</span>，但這樣看不到胸部起伏。</p></div></div>
+    <div class="farr"></div>
+    <div class="fnode go"><button class="ftog" aria-expanded="false" aria-controls="f8"><span class="n">7</span>D：AED 到了就用；電擊後立刻接著壓</button>
+      <div class="fbody" id="f8"><p>AED 貼上前持續 CPR <span class="pill p1">1 C-LD</span>；沒監測的心跳停止，準備電擊器時先做一小段 CPR <span class="pill p2a">2a B-R</span>；目擊或監測中的 VF/pVT 且電擊器在手邊，立刻電 <span class="pill p2a">2a C-LD</span>；電擊後直接壓、不要先看節律 <span class="pill p2a">2a B-R</span>。</p></div></div>
+  </div>
+  <div class="figrow">
+    <figure><img src="figs/fig5-hand-position.png" alt="施救者姿勢與手的位置" loading="lazy" width="946" height="707"><figcaption>Part 7 Figure 5。© 2025 AHA，僅供教學。</figcaption></figure>
+    <figure><img src="figs/fig6-side-view.png" alt="壓胸側面圖" loading="lazy" width="947" height="878"><figcaption>Part 7 Figure 6。© 2025 AHA，僅供教學。</figcaption></figure>
+    <div class="act" style="margin:0"><b class="t">練習｜單人全流程 → 雙人 30:2</b>每人先單人做一輪 1–7（約 2 分鐘），再兩人一組：一人壓、一人 BVM，練「第 30 下放手的同時，面罩已經扣好」。<span class="tag t-conv">建議</span></div>
+  </div>
+
+  <!-- 3.5 -->
+  <h3 id="ccf">3.5 高品質 CPR 團隊與 CCF：換手、少停、搬運 <span class="mono" style="font-size:.7em;color:var(--time)">38–55′</span></h3>
+  <figure class="svgfig">
+    <svg viewBox="0 0 720 190" role="img" aria-label="CCF 示意圖：上排兩分鐘內停頓很多，下排停頓很少。CCF 等於按壓時間除以急救總時間。指引的最低目標是至少 60%，高效能團隊可以超過 80%。" style="width:100%;height:auto;font-family:var(--f-body)">
+      <text x="0" y="18" font-size="13" fill="currentColor" style="fill:var(--muted)">示意圖（非實測資料）：同樣 2 分鐘，停頓多與停頓少</text>
+      <g transform="translate(0,34)">
+        <text x="0" y="17" font-size="13" style="fill:var(--ink)">停頓多</text>
+        <rect x="70" y="2" width="620" height="22" rx="4" style="fill:var(--c3-bg)"/>
+        <rect x="70" y="2" width="110" height="22" style="fill:var(--accent)"/><rect x="215" y="2" width="90" height="22" style="fill:var(--accent)"/>
+        <rect x="350" y="2" width="100" height="22" style="fill:var(--accent)"/><rect x="500" y="2" width="85" height="22" style="fill:var(--accent)"/>
+        <rect x="630" y="2" width="60" height="22" style="fill:var(--accent)"/>
+      </g>
+      <g transform="translate(0,74)">
+        <text x="0" y="17" font-size="13" style="fill:var(--ink)">停頓少</text>
+        <rect x="70" y="2" width="620" height="22" rx="4" style="fill:var(--c3-bg)"/>
+        <rect x="70" y="2" width="140" height="22" style="fill:var(--accent)"/><rect x="222" y="2" width="140" height="22" style="fill:var(--accent)"/>
+        <rect x="374" y="2" width="150" height="22" style="fill:var(--accent)"/><rect x="536" y="2" width="154" height="22" style="fill:var(--accent)"/>
+      </g>
+      <g transform="translate(70,124)" font-size="12">
+        <rect x="0" y="0" width="14" height="12" style="fill:var(--accent)"/><text x="20" y="11" style="fill:var(--ink)">有在壓</text>
+        <rect x="90" y="0" width="14" height="12" style="fill:var(--c3-bg)"/><text x="110" y="11" style="fill:var(--ink)">停手（通氣、摸脈、分析、換手、搬動）</text>
+      </g>
+      <text x="70" y="168" font-size="14" font-weight="700" style="fill:var(--ink)">CCF ＝ 按壓時間 ÷ 急救總時間</text>
+      <text x="70" y="186" font-size="12" style="fill:var(--muted)">最低目標 ≥ 60%（2b C-LD）；高效能團隊可 &gt; 80%（支持文字）</text>
+    </svg>
+    <figcaption>算術示範：2 分鐘（120 秒）裡停了 30 秒 → CCF＝90÷120＝75%。這是算法示範，不是指引數字。</figcaption>
+  </figure>
+  <div class="duo">
+    <div class="g"><h4>指引說</h4>
+      <div class="recs">
+        <div class="rec k1"><div class="badge"><span class="cor">1</span><span class="loe">C-LD</span></div><div>
+          <div class="zh">電擊前、電擊後的停頓越短越好。</div>
+          <div class="en">In adult cardiac arrest, preshock and postshock pauses in chest compressions should be as short as possible.</div>
+          <div class="ref">Part 7・CCF and Pauses #1</div></div></div>
+        <div class="rec k1"><div class="badge"><span class="cor">1</span><span class="loe">C-LD</span></div><div>
+          <div class="zh">檢查節律時，醫護人員摸脈不超過 10 秒；沒確定摸到就馬上繼續壓。</div>
+          <div class="en">During rhythm checks for adult cardiac arrest, the healthcare professional should minimize the time taken to check for a pulse (no more than 10 s), and if the rescuer does not definitely feel a pulse, chest compressions should be restarted immediately.</div>
+          <div class="ref">Part 7・CCF and Pauses #2</div></div></div>
+        <div class="rec k2a"><div class="badge"><span class="cor">2a</span><span class="loe">B-R</span></div><div>
+          <div class="zh">兩人以上時，大約<b>每 2 分鐘換壓胸的人</b>（或 30:2 約 5 個循環）。</div>
+          <div class="en">When 2 or more rescuers are available during an adult cardiac arrest, it is reasonable to switch chest compressors approximately every 2 min (or after about 5 cycles of compressions and ventilation at a ratio of 30:2).</div>
+          <div class="ref">Part 7・CCF and Pauses #4</div></div></div>
+        <div class="rec k2b"><div class="badge"><span class="cor">2b</span><span class="loe">C-LD</span></div><div>
+          <div class="zh">CCF 至少 60%。</div>
+          <div class="en">During adult cardiac arrest, it may be reasonable to perform CPR with a chest compression fraction of at least 60%.</div>
+          <div class="ref">Part 7・CCF and Pauses #6</div></div></div>
+        <div class="rec k1"><div class="badge"><span class="cor">1</span><span class="loe">C-EO</span></div><div>
+          <div class="zh">一般在<b>發現病人的地方</b>就地急救，只要能安全、有效地做高品質 CPR。</div>
+          <div class="en">In adult cardiac arrest, resuscitation should generally be conducted where the person is found, as long as high-quality CPR can be administered safely and effectively.</div>
+          <div class="ref">Part 7・Positioning #3</div></div></div>
+        <div class="rec k2a"><div class="badge"><span class="cor">2a</span><span class="loe">B-NR</span></div><div>
+          <div class="zh">多數 OHCA 優先在現場復甦、達到持續 ROSC 再開始運送（沒有特殊情況時）。<span class="tag t-new">New</span></div>
+          <div class="en">Prioritizing on-scene resuscitation focused on achieving sustained ROSC prior to initiation of transport for most adults and children experiencing OHCA can be beneficial in the absence of special circumstances.</div>
+          <div class="ref">Part 4 Systems of Care・On-Scene OHCA #2</div></div></div>
+        <div class="rec k2a"><div class="badge"><span class="cor">2a</span><span class="loe">B-NR</span></div><div>
+          <div class="zh">院內急救小組要有明確分工、多元專業，並以模擬訓練。<span class="tag t-new">New</span></div>
+          <div class="en">Designated or dedicated code teams with clearly defined roles, diverse expertise and adequate training incorporating simulation can be beneficial in improving patient outcomes following IHCA.</div>
+          <div class="ref">Part 4・In-Hospital Code Team #2</div></div></div>
+        <div class="rec k3"><div class="badge"><span class="cor">3</span><span class="loe">B-R</span></div><div>
+          <div class="zh">不建議常規使用機械式 CPR。<b>無益</b>。</div>
+          <div class="en">The routine use of mechanical CPR devices is not recommended in adult cardiac arrest. (3: No Benefit)</div>
+          <div class="ref">Part 7・Alternative Techniques #4</div></div></div>
+        <div class="rec k2b"><div class="badge"><span class="cor">2b</span><span class="loe">C-LD</span></div><div>
+          <div class="zh">徒手高品質 CPR 困難或危險的特定情境可考慮機械式 CPR，但裝上、拆下時要嚴格減少中斷。</div>
+          <div class="en">In adult cardiac arrest, the use of mechanical CPR devices may be considered in specific settings where the delivery of high-quality manual compressions may be challenging or dangerous for the healthcare professional, as long as rescuers strictly limit interruptions in CPR during deployment and removal of the device.</div>
+          <div class="ref">Part 7・Alternative Techniques #1</div></div></div>
+      </div>
+      <ul style="font-size:.92em">
+        <li>壓胸深度在 90–120 秒後開始變淺；每 2 分鐘換手剛好配合節律分析的停頓。<span class="tag t-sup">支持文字</span></li>
+        <li>邊運送邊 CPR 會降低 CPR 品質，並增加病人與救護人員的安全風險；ROC 資料中，運送中急救沒有提高存活。<span class="tag t-sup">Part 4 支持文字</span></li>
+        <li>移動擔架上跪姿或跨坐壓胸可改善深度，但要權衡施救者安全與穩定。<span class="tag t-sup">Part 7 支持文字</span></li>
+        <li>單人可從病人頭頂方向壓（over-the-head CPR），適用狹窄空間等情況。Part 7 表格標 2a C-LD，但句子用的是「may be considered」（通常是 2b 的用語）。<span class="tag t-tbd">待查證：COR 與措辭不一致</span></li>
+        <li>創傷造成的循環停止等情況，現場停留的效益較低，個案判斷。<span class="tag t-sup">Part 4 synopsis</span></li>
+      </ul>
+    </div>
+    <div class="c"><h4>課堂怎麼教</h4>
+      <div class="act"><b class="t">角色分配（每組 4–6 人）</b>隊長／壓胸 A／壓胸 B（換手）／BVM（雙人時加一人扣面罩）／AED＋計時記錄。依 Part 4「明確分工」條文設計。<span class="tag t-conv">分組方式為建議</span></div>
+      <div class="act"><b class="t">練習｜換手不掉拍</b>計時員每 2 分鐘喊「換」，下一位手已經懸在胸口上方，在 AED 分析的停頓中換。讓學員自己用碼錶量停了幾秒。<span class="tag t-conv">建議</span></div>
+      <div class="act"><b class="t">練習｜搬運毯任務（焜哥大綱）</b>假人放在搬運毯上，從地上移到另一端（擔架、走廊或樓梯口）。觀察員用碼錶只記一件事：<b>總共停手幾秒</b>，最後算 CCF。討論：哪一段停最久？能不能「先在原地做到 ROSC 再走」？非走不可時，怎麼分段移動、到點立刻壓？<span class="tag t-conv">任務設計細節為建議</span></div>
+      <p style="font-size:.9em">院內推床到 CT／導管室途中怎麼壓：Part 7 沒有專門條文，只有「就地急救」與移動擔架上壓胸的支持文字。<span class="tag t-tbd">院內搬運 CPR 無專門條文</span></p>
+    </div>
+  </div>
+
+  <!-- 3.5.1 Teamwork (v2) -->
+  <h3 id="teamwork">3.5.1 指引怎麼說團隊合作 <span class="mono" style="font-size:.7em;color:var(--time)">CPR 團隊 5′ 講解用</span></h3>
+  <div class="tm">
+  <div class="say">2025 AHA 把「團隊能力」寫成<b>強建議</b>（Part 12，<span class="pill p1">1 B-R</span>）：專業人員的急救訓練要特別強調團隊合作，不只練壓胸技術。</div>
+  <div class="fourcard">
+    <b>Part 12 §6.4 Synopsis 列的四大團隊能力</b> <span class="tag t-sup">支持文字</span>
+    <div class="q">“…life support training commonly includes training specifically targeting teamwork competencies including communication, leadership, decision-making, and workload management.”</div>
+    <div class="four">
+      <div><span class="e">Communication</span><b>溝通</b>指令點名給人、對方複誦、做完回報（閉環）。搬運毯：「我數 3 就抬」大家都聽得到。</div>
+      <div><span class="e">Leadership</span><b>領導</b>一個隊長、站得到看得到全局，自己不壓胸。搬運毯：隊長決定走不走、什麼時候停下來壓。</div>
+      <div><span class="e">Decision-making</span><b>決策</b>就地做還是移動、何時換手、何時電擊，由隊長說出口。搬運毯：「到樓梯轉角就放下壓 2 分鐘」。</div>
+      <div><span class="e">Workload management</span><b>工作量分配</b>人力不夠時先保壓胸，其他事排隊；累了就換。搬運毯：抬的人、壓的人、拿 AED 的人分開。</div>
+    </div>
+    <p style="font-size:.8em;color:var(--muted);margin:0">四項名稱與英文出自 Part 12 §6.4 Synopsis；每格的中文說明與搬運毯舉例是課堂詮釋 <span class="tag t-conv">課堂慣例</span></p>
+  </div>
+  <p style="font-size:.86em;color:var(--muted)">下面每條都附英文原句（不用按「原文」也會顯示）、COR/LOE 或 ILCOR 強度、出處連結，以及「課堂怎麼用」一句。課堂怎麼用為建議 <span class="tag t-conv">建議</span>。</p>
+
+  <h4 class="grp">AHA 2025 Part 12 Resuscitation Education Science</h4>
+  <div class="recs">
+        <div class="rec k1"><div class="badge"><span class="cor">1</span><span class="loe">B-R</span></div><div>
+          <div class="zh">專業人員的急救訓練，建議要<b>特別強調團隊能力</b>。</div>
+          <div class="en">It is recommended that life support training for healthcare professionals includes a specific emphasis on teamwork competencies.</div>
+          <div class="ref"><a href="https://cpr.heart.org/en/resuscitation-science/cpr-and-ecc-guidelines/resuscitation-education-science">Part 12・§6.4 Teamwork Competencies in Life Support Training #1</a></div>
+          <div class="use"><b>課堂怎麼用</b>5 分鐘講解的開場句：今天練的不只是壓多深，還有「誰喊、誰做、誰換」。</div></div></div>
+        <div class="rec k2a"><div class="badge"><span class="cor">2a</span><span class="loe">C-LD</span></div><div>
+          <div class="zh">在傳統訓練<b>之外</b>，加做在實際工作場所的情境模擬（in situ）是合理的。</div>
+          <div class="en">It is reasonable to conduct in situ simulation-based resuscitation training in addition to traditional training.</div>
+          <div class="ref"><a href="https://cpr.heart.org/en/resuscitation-science/cpr-and-ecc-guidelines/resuscitation-education-science">Part 12・§6.10 In Situ Training #1</a></div>
+          <div class="use"><b>課堂怎麼用</b>搬運毯任務盡量拉到真實走廊、樓梯口或救護車旁做，而不是只在教室地板。</div></div></div>
+        <div class="rec k2b"><div class="badge"><span class="cor">2b</span><span class="loe">B-R</span></div><div>
+          <div class="zh">用 in situ 模擬<b>取代</b>傳統訓練，可以考慮。</div>
+          <div class="en">It may be reasonable to conduct in situ simulation-based resuscitation training in place of traditional training.</div>
+          <div class="ref"><a href="https://cpr.heart.org/en/resuscitation-science/cpr-and-ecc-guidelines/resuscitation-education-science">Part 12・§6.10 In Situ Training #2</a></div>
+          <div class="use"><b>課堂怎麼用</b>提醒學員：回到單位用自己的走廊、自己的推床演練，價值不輸教室。</div></div></div>
+        <div class="rec k2b"><div class="badge"><span class="cor">2b</span><span class="loe">C-LD</span></div><div>
+          <div class="zh">講師帶引導反思（debriefing）時，可以用<b>腳本</b>。</div>
+          <div class="en">It may be reasonable for an instructor to use a debriefing script during resuscitation education.</div>
+          <div class="ref"><a href="https://cpr.heart.org/en/resuscitation-science/cpr-and-ecc-guidelines/resuscitation-education-science">Part 12・§6.11 Scripted Debriefing #1</a></div>
+          <div class="use"><b>課堂怎麼用</b>搬運毯任務結束後用固定三問：哪一段停最久？為什麼？下次怎麼改？</div></div></div>
+        <div class="rec k2a"><div class="badge"><span class="cor">2a</span><span class="loe">C-LD</span></div><div>
+          <div class="zh">EMS 系統宜追蹤人員接觸復甦個案的頻率，確保<b>出勤團隊裡有能處理心跳停止的人</b>。</div>
+          <div class="en">It is reasonable for EMS systems to monitor clinical personnel’s exposure to resuscitation events to ensure treating teams have members competent in the management of cardiac arrest cases.</div>
+          <div class="ref"><a href="https://cpr.heart.org/en/resuscitation-science/cpr-and-ecc-guidelines/resuscitation-education-science">Part 12・§7.5 EMS Practitioner Experience and Exposure to OHCA #1</a></div>
+          <div class="use"><b>課堂怎麼用</b>問 EMT 學員：你們分隊一年遇到幾次 OHCA？少碰到的人更需要定期團隊演練。</div></div></div>
+  </div>
+
+  <h4 class="grp">AHA 2025 Part 4 Systems of Care</h4>
+  <div class="recs">
+        <div class="rec k2a"><div class="badge"><span class="cor">2a</span><span class="loe">B-NR</span></div><div>
+          <div class="zh">急救後對施救者做<b>以表現為焦點的 debriefing</b>，對復甦品質改善計畫有幫助。</div>
+          <div class="en">Performance-focused debriefing of rescuers after cardiac arrest can be effective for resuscitation improvement programs.</div>
+          <div class="ref"><a href="https://cpr.heart.org/en/resuscitation-science/cpr-and-ecc-guidelines/systems-of-care">Part 4・§13 Clinical Debriefing #1</a></div>
+          <div class="use"><b>課堂怎麼用</b>示範「真實個案後」也要做：任務後 2 分鐘 debriefing 就是同一件事的縮小版。</div></div></div>
+        <div class="rec k2a"><div class="badge"><span class="cor">2a</span><span class="loe">B-NR</span></div><div>
+          <div class="zh">用客觀、量化的急救資料（如 CPR 品質數據）來做 debriefing，能提升品質。</div>
+          <div class="en">Review of objective and quantitative resuscitation data can be effective in improving the quality of post-event debriefing for adults and children.</div>
+          <div class="ref"><a href="https://cpr.heart.org/en/resuscitation-science/cpr-and-ecc-guidelines/systems-of-care">Part 4・§13 Clinical Debriefing #2</a></div>
+          <div class="use"><b>課堂怎麼用</b>觀察員的碼錶秒數、算出來的 CCF，就是 debriefing 的「客觀資料」。</div></div></div>
+        <div class="rec k2a"><div class="badge"><span class="cor">2a</span><span class="loe">C-LD</span></div><div>
+          <div class="zh">由熟悉 debriefing 流程的醫療人員來帶，是合理的。</div>
+          <div class="en">It is reasonable for debriefings to be facilitated by healthcare professionals familiar with established debriefing processes.</div>
+          <div class="ref"><a href="https://cpr.heart.org/en/resuscitation-science/cpr-and-ecc-guidelines/systems-of-care">Part 4・§13 Clinical Debriefing #3</a></div>
+          <div class="use"><b>課堂怎麼用</b>每組 debriefing 由講師或助教帶，不讓學員互相指責。</div></div></div>
+        <div class="rec k2a"><div class="badge"><span class="cor">2a</span><span class="loe">C-EO</span></div><div>
+          <div class="zh">同時安排<b>立即</b>與<b>延後</b>的 debriefing 是合理的，兩者能找到不同的改善點。</div>
+          <div class="en">Incorporating immediate and delayed debriefing is reasonable and may identify different opportunities for system improvement.</div>
+          <div class="ref"><a href="https://cpr.heart.org/en/resuscitation-science/cpr-and-ecc-guidelines/systems-of-care">Part 4・§13 Clinical Debriefing #4</a></div>
+          <div class="use"><b>課堂怎麼用</b>任務後立刻問「剛剛發生什麼」；課程最後再回頭問「系統要改什麼」（例如器材擺位）。</div></div></div>
+        <div class="rec k2a"><div class="badge"><span class="cor">2a</span><span class="loe">B-NR</span></div><div>
+          <div class="zh">EMS 系統要確保團隊人數足以做到<b>每個角色各有專人</b>。</div>
+          <div class="en">It is reasonable to ensure that EMS systems have a team size sufficient to achieve discretely assigned roles within the team.</div>
+          <div class="ref"><a href="https://cpr.heart.org/en/resuscitation-science/cpr-and-ecc-guidelines/systems-of-care">Part 4・§14 OHCA Team Composition #2</a></div>
+          <div class="use"><b>課堂怎麼用</b>分組時刻意讓一組只有 3 人、一組有 6 人，比較兩組的停手秒數。</div></div></div>
+        <div class="rec k1"><div class="badge"><span class="cor">1</span><span class="loe">B-NR</span></div><div>
+          <div class="zh">院內急救小組成員應受過 ALS 訓練。</div>
+          <div class="en">In-hospital code teams should be comprised of members with ALS training.</div>
+          <div class="ref"><a href="https://cpr.heart.org/en/resuscitation-science/cpr-and-ecc-guidelines/systems-of-care">Part 4・§15 In-Hospital Code Team Composition and Training #1</a></div>
+          <div class="use"><b>課堂怎麼用</b>院內學員：你們單位的 code team 名單上，每個人都有 ACLS 嗎？</div></div></div>
+  </div>
+  <p style="font-size:.86em">Part 4 §15 #2（明確分工、多元專業、含模擬的訓練，<span class="pill p2a">2a B-NR</span>）已列在上方 3.5「指引說」，不重複。</p>
+
+  <h4 class="grp">AHA 2025 Part 10 Special Circumstances（跟團隊直接相關的條文）</h4>
+  <div class="recs">
+        <div class="rec k1"><div class="badge"><span class="cor">1</span><span class="loe">C-LD</span></div><div>
+          <div class="zh">建議建立一個準備好處理孕婦心跳停止的團隊。</div>
+          <div class="en">Establishing a team prepared to manage cardiac arrest in a pregnant person is recommended.</div>
+          <div class="ref"><a href="https://cpr.heart.org/en/resuscitation-science/cpr-and-ecc-guidelines/adult-and-pediatric-special-circumstances-of-resuscitation">Part 10・§19.2 Team Preparation for Cardiac Arrest in Pregnancy #1</a></div>
+          <div class="use"><b>課堂怎麼用</b>跟 5.3 孕婦接起來：團隊要事先知道誰負責左推子宮、誰聯絡婦產科。</div></div></div>
+        <div class="rec k1"><div class="badge"><span class="cor">1</span><span class="loe">C-LD</span></div><div>
+          <div class="zh">可能面對孕婦心跳停止的醫療人員，應接受<b>依角色設計</b>的訓練。</div>
+          <div class="en">Role-specific training should be provided for healthcare professionals with the potential to respond to cardiac arrest in a pregnant patient.</div>
+          <div class="ref"><a href="https://cpr.heart.org/en/resuscitation-science/cpr-and-ecc-guidelines/adult-and-pediatric-special-circumstances-of-resuscitation">Part 10・§19.2 Team Preparation for Cardiac Arrest in Pregnancy #3</a></div>
+          <div class="use"><b>課堂怎麼用</b>「依角色訓練」的例子：每個人都要知道自己在團隊裡的那一格要做什麼。</div></div></div>
+        <div class="rec k1"><div class="badge"><span class="cor">1</span><span class="loe">C-EO</span></div><div>
+          <div class="zh">（高傳染性呼吸道病原情境）隊長應在不影響急救下，把室內人數降到最少。</div>
+          <div class="en">Resuscitation team leaders should minimize the number of people present in the room during resuscitation, consistent with effective resuscitation.</div>
+          <div class="ref"><a href="https://cpr.heart.org/en/resuscitation-science/cpr-and-ecc-guidelines/adult-and-pediatric-special-circumstances-of-resuscitation">Part 10・§14 High-Consequence Respiratory Pathogens #6</a></div>
+          <div class="use"><b>課堂怎麼用</b>說明「人不是越多越好」：隊長要控制人數，多的人在外面待命。</div></div></div>
+  </div>
+  <p style="font-size:.86em">Part 7（成人 BLS）與 Part 9（成人 ALS）的建議表<b>沒有</b>直接講團隊合作的條文；Part 7 跟團隊最接近的是「每 2 分鐘換手」（<span class="pill p2a">2a B-R</span>，已列在 3.5）。</p>
+
+  <h4 class="grp">補充：ILCOR 2025 Education, Implementation, and Teams CoSTR（GRADE 強度，不是 COR/LOE）</h4>
+  <div class="recs">
+        <div class="rec kil"><div class="badge"><span class="cor">ILCOR</span><span class="loe">弱</span></div><div>
+          <div class="zh">建議 BLS 與各種 ALS 訓練都納入團隊能力教學。</div>
+          <div class="en">We suggest that teaching teamwork competencies be included in BLS and all kinds of advanced life support training (weak recommendation, very low quality of evidence).</div>
+          <div class="ref"><a href="https://doi.org/10.1161/CIR.0000000000001359">ILCOR EIT 6415 Team Competencies in Resuscitation Training・Treatment Recommendations (2024)</a></div>
+          <div class="use"><b>課堂怎麼用</b>告訴學員：不只 AHA，國際共識也說 BLS 層級就要教團隊。</div></div></div>
+        <div class="rec kil"><div class="badge"><span class="cor">ILCOR</span><span class="loe">弱</span></div><div>
+          <div class="zh">人力足夠時，可考慮在急救團隊中設一位 <b>CPR Coach</b>（專門盯 CPR 品質的人）。 <span class="tag t-tbd">待查證：用「We recommend」但強度標 weak</span></div>
+          <div class="en">We recommend considering the inclusion of a CPR Coach as a member of the resuscitation team during cardiac arrest resuscitation in settings with adequate staffing (weak recommendation, very low–certainty evidence).</div>
+          <div class="ref"><a href="https://doi.org/10.1161/CIR.0000000000001359">ILCOR EIT 6314 CPR Coaching During Adult and Pediatric Cardiac Arrest・Treatment Recommendations (2025)</a></div>
+          <div class="use"><b>課堂怎麼用</b>6 人組可以多一個 CPR Coach：盯深度、速率、停手秒數，提醒換手。</div></div></div>
+        <div class="rec kil"><div class="badge"><span class="cor">ILCOR</span><span class="loe">弱</span></div><div>
+          <div class="zh">建議在所有場域的成人、兒童、新生兒心跳停止後，都做事後 debriefing。</div>
+          <div class="en">We suggest performing postevent debriefing after adult, pediatric, and neonatal cardiac arrest in all settings (weak recommendation, very low–certainty evidence).</div>
+          <div class="ref"><a href="https://doi.org/10.1161/CIR.0000000000001359">ILCOR EIT 6307 Debriefing of Clinical Resuscitation Performance・Treatment Recommendations (2025)</a></div>
+          <div class="use"><b>課堂怎麼用</b>跟 Part 4 §13 一起講：院內院外都適用。</div></div></div>
+        <div class="rec kil"><div class="badge"><span class="cor">ILCOR</span><span class="loe">強</span></div><div>
+          <div class="zh">資源方便取得時，in situ 模擬可以作為 CPR 訓練的選項。 <span class="tag t-tbd">待查證：強度標 strong，句子卻是「may be considered」</span></div>
+          <div class="en">We recommend that in situ simulation may be considered as an option for CPR training where resources are readily available (strong recommendation, very low–certainty evidence).</div>
+          <div class="ref"><a href="https://doi.org/10.1161/CIR.0000000000001359">ILCOR EIT 6407 In Situ (Workplace-Based) Simulation-Based CPR Training・Treatment Recommendations (2025)</a></div>
+          <div class="use"><b>課堂怎麼用</b>同 Part 12 §6.10：搬運毯任務在真實場地做。</div></div></div>
+        <div class="rec kil"><div class="badge"><span class="cor">ILCOR</span><span class="loe">弱</span></div><div>
+          <div class="zh">建議 EMS 系統追蹤人員的復甦經驗，並設法讓出勤團隊裡有近期處理過的人。</div>
+          <div class="en">We suggest that EMS systems (1) monitor their clinical personnel’s exposure to resuscitation and (2) implement strategies, where possible, to address low exposure or ensure that treating teams have members with recent exposure (weak recommendation, very low–certainty evidence).</div>
+          <div class="ref"><a href="https://doi.org/10.1161/CIR.0000000000001359">ILCOR EIT 6104 EMS Experience and Exposure・Treatment Recommendations (2020)</a></div>
+          <div class="use"><b>課堂怎麼用</b>同 Part 12 §7.5。</div></div></div>
+  </div>
+  <p style="font-size:.84em;color:var(--muted)">ILCOR 原文頁面沒有分節錨點，連結到全文；請以章節名稱與 EIT 編號搜尋。ILCOR 另提到 CPR Coach「may be considered a specific way of using shared leadership in resuscitation teams」<span class="tag t-sup">ILCOR 理由說明，非建議</span>。</p>
+  </div>
+
+  <!-- 3.5.2 ACLS PM 2025 Part 3 (v4.4) -->
+  <h3 id="hpt">3.5.2 ACLS Provider Manual 2025 Part 3：高效能團隊 <span class="mono" style="font-size:.7em;color:var(--time)">1-6a／1-6b／1-7 備課用</span></h3>
+  <div class="tm">
+  <div class="say">指引告訴我們「要練團隊」；ACLS 教科書告訴我們「團隊具體怎麼分工、怎麼講話」。</div>
+  <div class="pm-note"><b>這一節的來源性質</b>：全部出自 AHA《ACLS Provider Manual》2025 年版 Part 3（International English edition）。這是<b>教科書</b>，<b>沒有 COR/LOE</b>，本節也不標 COR/LOE；來源標籤一律寫 <span class="tag t-pm">ACLS PM 2025 Part 3</span>。內容為中文改寫，頁碼取自電子書內嵌的印刷頁碼 <span class="tag t-tbd">頁碼待以紙本核對</span>。跟指引條文的比較放在本節最後。</div>
+
+  <h4 class="grp">一、高效能團隊顧四件事（Figure 35，p95–96）</h4>
+  <div class="four">
+    <div><span class="e">Timing</span><b>時間</b>第一次按壓、第一次電擊、CCF、電擊前停頓、到場時間</div>
+    <div><span class="e">Quality</span><b>品質</b>速率、深度、回彈、少中斷、每 2 分鐘或累了換手、不過度通氣、用回饋裝置</div>
+    <div><span class="e">Coordination</span><b>協調</b>各自熟練角色、朝共同目標無縫配合</div>
+    <div><span class="e">Administration</span><b>管理</b>領導、量測、CQI、參與人數</div>
+  </div>
+  <p style="font-size:.84em;color:var(--muted)">注意：這四項是教科書的「團隊焦點」框架，和 3.5.1 的 Part 12 §6.4 四大團隊能力（溝通／領導／決策／工作量分配）<b>不是同一組</b>，上課不要混講。<span class="tag t-pm">ACLS PM 2025 Part 3</span></p>
+  <ul style="font-size:.92em">
+    <li>CCF：書中寫理想上 &gt; 80%，並註明高效能系統以<b>至少 60%</b> 為目標、理想常以 &gt; 80% 為目標。指引條文只有「至少 60%」（3.5，<span class="pill p2b">2b C-LD</span>）。<span class="tag t-pm">ACLS PM 2025 Part 3・p95</span></li>
+    <li>書中「提高 CCF 的方法」框（p96）適合 BLS 課堂的有：壓胸者手<b>懸在胸口上方</b>等著、<b>下一位壓胸者先就位</b>。其他幾項（分析前先充電、充電時先摸脈、不停壓插管、壓胸中給藥、BVM 持續壓胸＋非同步通氣）屬 ALS／手動去顫器情境。<span class="tag t-pm">ACLS PM 2025 Part 3・p96</span></li>
+  </ul>
+
+  <h4 class="grp">二、角色分工：六人站位與復甦三角（Figure 36，p98）</h4>
+  <div class="tw pm-tbl"><table>
+    <caption>六人高效能團隊建議站位（書中強調是「建議」，可依在地規範調整）<span class="tag t-pm">ACLS PM 2025 Part 3・Figure 36</span></caption>
+    <thead><tr><th>角色</th><th>站哪裡</th><th>做什麼（中文改寫）</th><th>本課程對應</th></tr></thead>
+    <tbody>
+      <tr><td><b>Compressor</b><br>壓胸者</td><td>病人右側</td><td>評估病人、壓胸；每 2 分鐘（累了提早）和 AED／監視器那位輪替</td><td>壓胸 A／B</td></tr>
+      <tr><td><b>Monitor/Defibrillator/<br>CPR Coach</b></td><td>病人左側</td><td>帶來並操作 AED／去顫器，被指派時兼 CPR Coach；和壓胸者輪替；螢幕擺在隊長看得到的地方</td><td>AED（＋計時）</td></tr>
+      <tr><td><b>Airway</b><br>呼吸道</td><td>病人頭端</td><td>打開呼吸道、BVM 通氣、放呼吸道輔助器</td><td>BVM</td></tr>
+      <tr><td><b>Team Leader</b><br>隊長</td><td>病人右腳端（可走動）</td><td>指派角色、做決策、給回饋、承接沒人負責的事；每個團隊都要有明確隊長</td><td>Leader</td></tr>
+      <tr><td><b>IV/IO/Medications</b></td><td>病人左腳端</td><td>ALS 人員：建立 IV/IO、給藥</td><td>BLS 課程無此角色（1-6b 改成「鋪毯」）</td></tr>
+      <tr><td><b>Timer/Recorder</b><br>計時記錄</td><td>病人右肩附近</td><td>記錄處置與給藥時間、<b>預告下一次何時該做</b>、記錄壓胸中斷次數與秒數，回報隊長</td><td>計時（1-6b 與 AED 同一人兼任）</td></tr>
+    </tbody></table></div>
+  <div class="pm-grid">
+    <div class="cat"><h5>復甦三角<span class="e">Resuscitation Triangle</span></h5>壓胸者、AED／監視器（兼 CPR Coach）、呼吸道三人圍著病人。書中說「團隊擁有這場急救」，除了保護自身安全，<b>沒有人離開三角</b>。<span class="tag t-pm">Figure 36 長描述</span></div>
+    <div class="cat"><h5>人不夠 6 個時<span class="e">Fewer than 6</span></h5>隊長要把任務排優先順序，再分給在場的人。<span class="tag t-pm">p99</span></div>
+    <div class="cat"><h5>CPR Coach<span class="e">p98–99</span></h5>可獨立，或併入 AED／監視器那位；站在去顫器旁看得到壓胸者。報出開始 CPR、回饋深度／速率／回彈與通氣、<b>講中間值目標</b>（例：直接說 110/min）、主導每一次停頓。<span class="tag t-pm">p98–99</span></div>
+  </div>
+  <div class="pm-grid">
+    <div><h5>隊長要做的事<span class="e">Team Leader Role・p97–98</span></h5><ul>
+      <li>組織團隊、看每個人的表現、<b>必要時補位</b></li>
+      <li>顧整體病人照護（成員顧自己那一格）</li>
+      <li>承接沒被指派的角色；想好下一步、確認沒漏</li>
+      <li>定期做團隊總結、徵詢大家意見</li>
+      <li>避免<b>固著錯誤</b>（fixation errors）</li>
+      <li>要做進階處置時，<b>暫時把隊長交給別人</b></li>
+      <li>急救後帶大家分析、debrief、為下次練習</li></ul></div>
+    <div><h5>成員要做到<span class="e">Team Member Roles・p98</span></h5><ul>
+      <li>在自己執業範圍內技術熟練</li>
+      <li>清楚自己被分到什麼、準備好去做</li>
+      <li>常練、熟悉演算法</li>
+      <li>投入、想把人救回來（committed to success）</li></ul></div>
+    <div><h5>角色不清的三個徵兆<span class="e">Clear Roles・p100</span></h5><ul>
+      <li>同一件事被做兩次</li>
+      <li>該做的事被漏掉</li>
+      <li>明明還有人手，卻讓某人一人多職</li></ul>→ 可直接當 debriefing 觀察題</div>
+  </div>
+
+  <h4 class="grp">三、團隊動態八元素（p99–103，Table 13–20）</h4>
+  <p style="font-size:.88em">書中把團隊動態分三大類：<b>角色</b>（Roles）、<b>講什麼</b>（What to Communicate）、<b>怎麼講</b>（How to Communicate），每個元素都有一張「隊長／成員各做什麼」的表。以下為中文改寫重點。<span class="tag t-pm">ACLS PM 2025 Part 3</span></p>
+  <div class="tw"><table>
+    <caption>團隊動態八元素（中文改寫，非原表轉錄）<span class="tag t-pm">ACLS PM 2025 Part 3・Table 13–20</span></caption>
+    <thead><tr><th style="width:22%">元素</th><th>隊長</th><th>成員</th></tr></thead>
+    <tbody>
+      <tr><td colspan="3" style="background:var(--sunk);font-weight:700">角色 Roles</td></tr>
+      <tr><td><b>清楚分工</b><br><span class="mono" style="font-size:.8em">Clear Roles and Responsibilities・T13</span></td><td>定義每個人的角色；依專長與可用人力平均分配</td><td>找自己能力內的事做；做完告訴隊長；超出能力就說、要求換；主動補位</td></tr>
+      <tr><td><b>知道自己的極限</b><br><span class="mono" style="font-size:.8em">Knowing Your Limitations・T14</span></td><td colspan="2">全員：<b>早點求援</b>，不要等病人更糟；處置無效時請教更有經驗的人；急救中不要嘗試沒做過的技術。書中強調求助不是軟弱，人手寧多勿少。</td></tr>
+      <tr><td><b>建設性介入</b><br><span class="mono" style="font-size:.8em">Constructive Interventions・T15</span></td><td>指示改做優先度更高的處置；把超出能力的人換任務；<b>當場避免衝突，事後再 debrief</b></td><td>有把握地提出替代方案；同事要出錯時提出質疑、及時阻止</td></tr>
+      <tr><td colspan="3" style="background:var(--sunk);font-weight:700">講什麼 What to Communicate</td></tr>
+      <tr><td><b>知識分享</b><br><span class="mono" style="font-size:.8em">Knowledge Sharing・T16</span></td><td>鼓勵分享；主動問「還有什麼診斷、漏了什麼處置」；小心固著錯誤（「一切都 OK」「只有這條路」「什麼都好就是不要這個」）</td><td>彼此分享病人變化；接受能讓自己做得更好的資訊</td></tr>
+      <tr><td><b>總結與再評估</b><br><span class="mono" style="font-size:.8em">Summarizing and Reevaluating・T17</span></td><td><b>定期講出現況與接下來幾步</b>，讓全隊有共享心智模型（shared mental model）；有新資訊就改策略；向新到的人說明現況；可請計時記錄提供摘要</td><td>病人明顯變化時要說出來</td></tr>
+      <tr><td colspan="3" style="background:var(--sunk);font-weight:700">怎麼講 How to Communicate</td></tr>
+      <tr><td><b>閉環溝通</b><br><span class="mono" style="font-size:.8em">Closed-Loop Communications・T18</span></td><td>三步：①對特定人下指令 ②要求清楚回應＋眼神接觸 ③<b>確認做完，才派下一件</b></td><td>開始或完成時回報（例：「IV 打上了」）；給藥前先口頭和隊長確認</td></tr>
+      <tr><td><b>清楚訊息</b><br><span class="mono" style="font-size:.8em">Clear Messages・T19</span></td><td>鼓勵大家講清楚、講完整句子</td><td>全員：<b>複誦指令，有一點疑問就問</b>；不含糊、不吼叫；<b>一次只有一個人說話</b></td></tr>
+      <tr><td><b>相互尊重</b><br><span class="mono" style="font-size:.8em">Mutual Respect・T20</span></td><td>做得對就給正向回饋（「謝謝，做得好！」）</td><td>全員：放下自我、專心聽、語氣友善受控、不表現攻擊性；不要把「下指令」誤當成「兇」</td></tr>
+    </tbody></table></div>
+  <p style="font-size:.84em;color:var(--muted)">書中對清楚訊息的形容：“The most effective teams are usually quiet, calm, and focused on a common goal—not noisy or upset.”（p103）<span class="tag t-pm">ACLS PM 2025 Part 3</span></p>
+
+  <h4 class="grp">四、CCF 怎麼量、debriefing 與系統（同書其他段落）</h4>
+  <ul style="font-size:.92em">
+    <li><b>兩個碼錶手算 CCF</b>：一個計急救總時間（開始到結束或 ROSC），一個只在有壓胸時走、停壓就暫停；CCF＝壓胸時間 ÷ 總時間。也可用回饋裝置或 app。<span class="tag t-pm">ACLS PM 2025 Part 3・p122</span></li>
+    <li>CPR 品質要用影音回饋裝置即時量測；隊長分派角色、安排處置以減少中斷。<span class="tag t-pm">ACLS PM 2025 Part 3・p121</span></li>
+    <li><b>Debriefing</b>：書中沒有獨立的 debriefing 小節，也<b>沒有提供 debriefing 腳本或框架</b>。相關內容是：隊長急救後帶大家分析、debrief（p97）；建設性介入當場不衝突、事後 debrief（p101）；Part 1 說每次急救後都該找時間 debrief，立即或稍後皆可（p6），並說事件後對施救者做 debriefing、轉介情緒支持可能有益（p9）。<span class="tag t-pm">ACLS PM 2025 Part 1／3</span></li>
+    <li><b>Systems of Care 在 Part 1（p7–10），不在 Part 3</b>：結構＋過程 → 系統 → 結果，放在 CQI 框架下（Figure 1）；CQI 循環＝系統性評估照護與結果 → 建立基準 → 針對缺口改善；量測、跟過去與外部比較（例：CARES、GWTG-Resuscitation 登錄）、找改善點。<span class="tag t-pm">ACLS PM 2025 Part 1</span></li>
+  </ul>
+
+  <h4 class="grp">五、跟指引條文（3.5／3.5.1）怎麼對</h4>
+  <div class="tw"><table style="min-width:0">
+    <thead><tr><th style="width:18%">關係</th><th>內容</th></tr></thead>
+    <tbody>
+      <tr><td><b>一致</b></td><td>團隊能力要教（Part 12 §6.4 <span class="pill p1">1 B-R</span>）；明確分工（Part 4 §15 #2、§14 #2 <span class="pill p2a">2a B-NR</span>）↔ 書中六角色與清楚分工；debriefing（Part 4 §13 #1、#4）↔ 書中「每次急救後立即或稍後 debrief」；量化資料（Part 4 §13 #2）↔ 碼錶算 CCF、回饋裝置；每 2 分鐘換手（Part 7 <span class="pill p2a">2a B-R</span>）、CCF ≥60%（Part 7 <span class="pill p2b">2b C-LD</span>）兩邊一致。</td></tr>
+      <tr><td><b>書中補充</b></td><td>六角色站位與復甦三角、隊長職責清單、八元素的隊長／成員分工、固著錯誤、CPR Coach 的具體動作與「講中間值」、兩碼錶手算 CCF。</td></tr>
+      <tr><td><b>要小心</b></td><td>
+        ① <b>CPR Coach 強度</b>：書中語氣偏肯定（說研究顯示品質較好、應併入 Monitor/Defibrillator 角色），但 ILCOR EIT 6314 是<b>弱建議、非常低確定性</b>，只說人力足夠時考慮；書中引的研究是兒科模擬試驗。→ 上課用「可以考慮」的強度。<br>
+        ② <b>CCF &gt; 80%</b>：書中寫成「理想目標」，指引條文只有 ≥60%；&gt; 80% 是支持文字，不是條文。<br>
+        ③ <b>BVM 持續壓胸＋非同步通氣</b>：書中列為提高 CCF 的選項；本課程教 30:2，指引頁未收這條。<span class="tag t-tbd">待查證：需回 Part 7／9 原文核對</span><br>
+        ④ <b>Huddle</b>：書中沒有這個詞；書的對應概念是「總結與再評估、共享心智模型」。Part 4 的 safety huddle 是心跳停止<b>前</b>的預防，三者不同。<br>
+        ⑤ Part 10 §14 #6「隊長控制室內人數」（<span class="pill p1">1 C-EO</span>）在書 Part 3 團隊章沒有對應段落。
+      </td></tr>
+    </tbody></table></div>
+  </div>
+
+  <!-- 3.6 -->
+  <h3 id="rescue">3.6 有脈搏、沒有正常呼吸（rescue breathing）＋鴉片類中毒 <span class="mono" style="font-size:.7em;color:var(--time)">55–60′</span></h3>
+  <div class="duo">
+    <div class="g"><h4>指引說</h4>
+      <div class="recs">
+        <div class="rec k1"><div class="badge"><span class="cor">1</span><span class="loe">C-LD</span></div><div>
+          <div class="zh">有自發循環（脈搏強、容易摸到）但呼吸停止的成人，醫護人員應給通氣。</div>
+          <div class="en">For an adult with spontaneous circulation (ie, strong and easily palpable pulses) and respiratory arrest, the healthcare professional should provide ventilations.</div>
+          <div class="ref">Part 7・Respiratory Arrest #1</div></div></div>
+        <div class="rec k2a"><div class="badge"><span class="cor">2a</span><span class="loe">C-LD</span></div><div>
+          <div class="zh"><b>每 6 秒 1 口</b>（每分鐘 10 次），每口都要看到胸部起伏。</div>
+          <div class="en">When providing ventilations for an adult patient with respiratory arrest, it is reasonable for the healthcare professional to give 1 ventilation every 6 s, or 10 breaths/min, with each ventilation creating visible chest rise.</div>
+          <div class="ref">Part 7・Respiratory Arrest #2</div></div></div>
+        <div class="rec k1"><div class="badge"><span class="cor">1</span><span class="loe">B-NR</span></div><div>
+          <div class="zh">疑似鴉片類過量、呼吸抑制或呼吸停止、<b>確定有脈搏</b>：受過訓練的施救者給通氣或 BVM。</div>
+          <div class="en">For trained rescuers assisting an adult or child with suspected opioid overdose who has respiratory depression or respiratory arrest and has a definite pulse, breaths or bag-mask ventilation should be provided.</div>
+          <div class="ref">Part 10・Opioid Overdose #1</div></div></div>
+        <div class="rec k1"><div class="badge"><span class="cor">1</span><span class="loe">B-NR</span></div><div>
+          <div class="zh">同上情況（呼吸停止、確定有脈搏），應給鴉片類拮抗劑（如 naloxone）。</div>
+          <div class="en">For trained rescuers assisting an adult or child with suspected opioid overdose in respiratory arrest with a definite pulse, an opioid antagonist (eg, naloxone) should be administered.</div>
+          <div class="ref">Part 10・Opioid Overdose #3</div></div></div>
+        <div class="rec k1"><div class="badge"><span class="cor">1</span><span class="loe">C-EO</span></div><div>
+          <div class="zh">給拮抗劑或等它起作用時，<b>不能延遲</b>標準急救或啟動急救系統。</div>
+          <div class="en">Lay and trained rescuers should not delay performing standard resuscitation or activating the emergency response system while administering an opioid antagonist (eg, naloxone) or awaiting the person's response to an opioid antagonist.</div>
+          <div class="ref">Part 10・Opioid Overdose #4</div></div></div>
+        <div class="rec k2b"><div class="badge"><span class="cor">2b</span><span class="loe">B-NR</span></div><div>
+          <div class="zh">疑鴉片過量的成人<b>心跳停止</b>，可以給拮抗劑，前提是不干擾高品質 CPR。<span class="tag t-new">New</span></div>
+          <div class="en">For lay and trained rescuers, opioid antagonist administration may be reasonable for adults in cardiac arrest with suspected opioid overdose, provided that opioid antagonist (eg, naloxone) administration does not interfere with the delivery of standard resuscitation including high-quality compression-ventilation CPR.</div>
+          <div class="ref">Part 10・Opioid Overdose #5</div></div></div>
+        <div class="rec k1"><div class="badge"><span class="cor">1</span><span class="loe">C-LD</span></div><div>
+          <div class="zh">對拮抗劑有反應的成人，要在醫療場所觀察到再次呼吸抑制風險低、意識與生命徵象正常。</div>
+          <div class="en">Adults with opioid overdose who respond to opioid antagonists (eg, naloxone) should be observed in a healthcare setting until a low risk of recurrent respiratory depression, normal level of consciousness, and normal vital signs are achieved.</div>
+          <div class="ref">Part 10・Following Successful Response #1</div></div></div>
+      </div>
+      <ul style="font-size:.92em">
+        <li>演算法：每 6 秒 1 口、<b>每 2 分鐘摸一次脈</b>，沒脈搏就開始 CPR。<span class="tag t-algo">演算法</span></li>
+        <li>有脈搏的人呼吸停止約 90 秒，血氧就可能掉到危險程度。<span class="tag t-sup">支持文字</span></li>
+        <li>拮抗劑經鼻或肌肉注射可能要幾分鐘、甚至重複給藥；非鴉片類鎮靜藥不會被逆轉；拮抗劑不會逆轉 VF。<span class="tag t-sup">支持文字</span></li>
+        <li>一項研究中，低劑量 IV naloxone 滴定治療後 72% 再出現呼吸抑制。<span class="tag t-sup">支持文字</span></li>
+      </ul>
+      <p style="font-size:.88em">劑量：Part 10 Table 4 有成人與兒童劑量，本頁<b>不列劑量</b>，用藥依各院醫囑。<span class="tag t-tbd">劑量未摘錄</span></p>
+    </div>
+    <div class="c"><h4>課堂怎麼教</h4>
+      <div class="act"><b class="t">情境（建議）</b>「病房病人叫不醒，脈搏摸得到、呼吸很慢很淺」→ 學員要做：BVM 每 6 秒 1 口、每 2 分鐘摸脈、呼叫醫師／依院內流程給 naloxone → 講師在第 2 分鐘說「摸不到了」→ 立刻轉 CPR。<span class="tag t-conv">建議</span></div>
+      <p style="font-size:.9em">重點只有一句：<b>先把氣給進去，藥是加分</b>。拮抗劑醒來後還要觀察，因為鴉片類作用可能比拮抗劑長。</p>
+    </div>
+  </div>
+
+  <!-- 3.7 -->
+  <h3 id="handoff">3.7 交接：影響預後的因素、交接要講什麼 <span class="mono" style="font-size:.7em;color:var(--time)">60–65′</span></h3>
+  <div class="info">AHA 2025 Part 7 沒有提供交班格式的建議條文；我在 Part 4 檢索到的是團隊組成、debriefing 等條文，也沒有看到交班格式。<span class="tag t-tbd">AHA 是否有交班格式條文：待查證</span>下面的格式是<b>非 AHA 來源</b>。</div>
+  <div class="duo">
+    <div class="g"><h4>指引說（影響預後的因素）</h4>
+      <ul style="font-size:.92em">
+        <li><b>早期高品質 CPR 與及早電擊</b>是與預後改善最相關的處置。<span class="tag t-sup">Part 7 Preamble</span></li>
+        <li>ARREST 登錄：目擊 VF，6 分鐘內第一次電擊成功率 93%，延到 16 分鐘以上降到 75%；第一次電擊每晚 1 分鐘，存活出院機率降低 6%。<span class="tag t-sup">Part 7 支持文字</span></li>
+        <li>CCF 越高與存活改善相關；電擊前後停頓越短 ROSC 越好。<span class="tag t-sup">Part 7 支持文字</span></li>
+        <li>30:2 停頓中有效通氣超過一半的病人，ROSC、存活、神經預後都較好。<span class="tag t-sup">Part 7 支持文字</span></li>
+        <li>延遲開始壓胸與較差預後有關（一項電話指導 CPR 研究中，41% 因為搬動病人而延遲）。<span class="tag t-sup">Part 7 支持文字</span></li>
+      </ul>
+      <div class="recs">
+        <div class="rec k2a"><div class="badge"><span class="cor">2a</span><span class="loe">B-NR</span></div><div>
+          <div class="zh">事後以表現為焦點的 debriefing，對急救品質改善有幫助。</div>
+          <div class="en">Performance-focused debriefing of rescuers after cardiac arrest can be effective for resuscitation improvement programs.</div>
+          <div class="ref">Part 4・Debriefing #1</div></div></div>
+      </div>
+    </div>
+    <div class="c"><h4>課堂怎麼教（非 AHA 格式）</h4>
+      <p><b>IMIST-AMBO</b> <span class="tag t-other">Iedema 2012；Shah 2016</span>：救護→急診交班用的結構。</p>
+      <div class="tw" style="margin:6px 0"><table style="min-width:0"><tbody>
+        <tr><td class="mono">I</td><td>Identification：病人是誰（年齡、性別）、發生時間</td></tr>
+        <tr><td class="mono">M</td><td>Mechanism／Medical complaint：機轉或主訴</td></tr>
+        <tr><td class="mono">I</td><td>Injuries／Information：相關傷勢或資訊</td></tr>
+        <tr><td class="mono">S</td><td>Signs：生命徵象、GCS</td></tr>
+        <tr><td class="mono">T</td><td>Treatment &amp; trends：給了什麼、反應如何</td></tr>
+        <tr><td class="mono">A M B O</td><td>Allergies・Medications・Background・Other</td></tr>
+      </tbody></table></div>
+      <p style="font-size:.9em">院內醫護之間常用 <b>SBAR</b>（Situation, Background, Assessment, Recommendation）<span class="tag t-other">AHRQ TeamSTEPPS</span>。</p>
+      <p style="font-size:.9em"><b>心跳停止交班要塞進 T 的東西</b> <span class="tag t-conv">對應上面預後因子，課堂建議</span>：倒下時間、有沒有目擊、旁觀者 CPR 多久後開始、第一次電擊時間與總次數、初始節律、通氣方式（BVM／進階呼吸道）、給過的藥（含 naloxone）、ROSC 時間。</p>
+      <div class="act"><b class="t">練習｜30 秒交班</b>搬運毯任務結束，隊長用 IMIST-AMBO 向講師（扮急診醫師）交班 30 秒，其他人計時、補漏。<span class="tag t-conv">建議</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 04 CHOKING ============ -->
+<section class="ch" id="choking" data-nav="Choking">
+  <div class="chhead"><span class="num">04</span><h2>Choking：成人異物哽塞（附兒童、嬰兒差異）</h2><span class="min">20 min</span></div>
+  <div class="say">還能咳就讓他咳；咳不出、講不出話就 5 背擊 → 5 腹戳，一直循環；倒下就壓胸，開口看得到才拿。</div>
+  <div class="duo">
+    <div class="g"><h4>指引說</h4>
+      <div class="recs">
+        <div class="rec k1"><div class="badge"><span class="cor">1</span><span class="loe">C-EO</span></div><div>
+          <div class="zh"><b>輕度</b>阻塞：讓病人自己咳，同時觀察有沒有變嚴重。</div>
+          <div class="en">For adults with mild FBAO, the person should be allowed to clear the airway by coughing while being observed for signs of severe airway obstruction.</div>
+          <div class="ref">Part 7・FBAO Conscious #3</div></div></div>
+        <div class="rec k1"><div class="badge"><span class="cor">1</span><span class="loe">C-EO</span></div><div>
+          <div class="zh"><b>嚴重</b>阻塞要啟動急救系統。</div>
+          <div class="en">Rescuers should activate the emergency response system for adults with severe FBAO.</div>
+          <div class="ref">Part 7・FBAO Conscious #2</div></div></div>
+        <div class="rec k1"><div class="badge"><span class="cor">1</span><span class="loe">B-NR</span></div><div>
+          <div class="zh">嚴重阻塞：反覆做 <b>5 次背擊（拍背），接著 5 次腹戳</b>，直到異物排出或失去反應。<span class="tag t-upd">Updated</span></div>
+          <div class="en">For adults with severe FBAO, repeated cycles of 5 back blows (slaps) followed by 5 abdominal thrusts should be performed until the object is expelled or the person becomes unresponsive.</div>
+          <div class="ref">Part 7・FBAO Conscious #1</div></div></div>
+        <div class="rec k1"><div class="badge"><span class="cor">1</span><span class="loe">C-EO</span></div><div>
+          <div class="zh">抱不住肚子（環抱不到）：改成 5 背擊＋5 <b>胸戳</b>。</div>
+          <div class="en">If the rescuer is unable to encircle the person's abdomen, repeated cycles of 5 back blows (slaps) followed by 5 chest thrusts should be used for adults with severe FBAO until the object is expelled or the person becomes unresponsive.</div>
+          <div class="ref">Part 7・FBAO Special Circumstances #1</div></div></div>
+        <div class="rec k1"><div class="badge"><span class="cor">1</span><span class="loe">C-EO</span></div><div>
+          <div class="zh"><b>懷孕後期</b>：5 背擊＋5 <b>胸戳</b>。</div>
+          <div class="en">For adults in the late stages of pregnancy with severe FBAO, repeated cycles of 5 back blows (slaps) followed by 5 chest thrusts should be used until the object is expelled or the person becomes unresponsive.</div>
+          <div class="ref">Part 7・FBAO Special Circumstances #2</div></div></div>
+        <div class="rec k1"><div class="badge"><span class="cor">1</span><span class="loe">C-LD</span></div><div>
+          <div class="zh">失去反應：開始 CPR，<b>從壓胸開始</b>，還沒人打電話就啟動急救系統。</div>
+          <div class="en">If adults with severe FBAO become unresponsive, rescuers should start CPR, beginning with chest compressions, and activate the emergency response system if no one has done so.</div>
+          <div class="ref">Part 7・FBAO Unconscious #1</div></div></div>
+        <div class="rec k1"><div class="badge"><span class="cor">1</span><span class="loe">C-EO</span></div><div>
+          <div class="zh">CPR 中打開呼吸道給氣時，<b>移除看得到的異物</b>。</div>
+          <div class="en">For adults with FBAO receiving CPR, rescuers should remove any visible foreign body when opening the airway to provide breaths.</div>
+          <div class="ref">Part 7・FBAO Unconscious #2</div></div></div>
+        <div class="rec k3"><div class="badge"><span class="cor">3</span><span class="loe">C-LD</span></div><div>
+          <div class="zh"><b>不要盲目用手指掏</b>。<b>有害</b>。</div>
+          <div class="en">Blind finger sweeps should not be performed for adults with FBAO. (3: Harm)</div>
+          <div class="ref">Part 7・FBAO Unconscious #3</div></div></div>
+        <div class="rec k2b"><div class="badge"><span class="cor">2b</span><span class="loe">C-LD</span></div><div>
+          <div class="zh">吸引式異物清除器（suction-based device）的效果與安全性尚未確立，證據不足以建議。</div>
+          <div class="en">Effectiveness and safety of suction-based airway clearance devices have not been established in adults with FBAO. There is insufficient evidence to make a recommendation.</div>
+          <div class="ref">Part 7・FBAO Special Circumstances #3</div></div></div>
+      </div>
+      <ul style="font-size:.92em">
+        <li><b>嚴重阻塞的徵象</b>：咳嗽微弱或咳不出、講不出話、發紺、意識改變、呼吸停止。<span class="tag t-algo">FBAO 演算法</span></li>
+        <li>為什麼先背擊：709 人的世代研究中，背擊的解除率較高、傷害較少；腹戳有主動脈剝離、胃破裂等致命個案報告。5＋5 交替也是為了跟兒童、嬰兒一致。<span class="tag t-sup">支持文字</span></li>
+        <li>失去意識後，壓胸本身產生的氣道壓力可能把異物推出；有沒有脈搏都直接 CPR。<span class="tag t-sup">支持文字</span></li>
+        <li>異物排出後仍要持續監測到進階照護接手。<span class="tag t-algo">FBAO 演算法</span></li>
+      </ul>
+    </div>
+    <div class="c"><h4>課堂怎麼教</h4>
+      <figure style="margin-top:0"><img src="figs/fig3-fbao-algorithm.png" alt="AHA 2025 成人 FBAO 演算法" loading="lazy" width="1083" height="1244"><figcaption>Part 7 Figure 3 Adult FBAO Algorithm。© 2025 AHA，僅供教學。</figcaption></figure>
+      <div class="act"><b class="t">開場（基礎課沿用）</b>「珍珠噎著」影片 → 問：怎麼看出是嚴重阻塞？<span class="tag t-conv">沿用 TCH-007 基礎課</span></div>
+      <div class="act"><b class="t">練習｜5 背擊 → 5 腹戳</b>兩人一組（不要真的用力）：病人身體前傾，用掌根拍兩肩胛骨中間 5 下；再站到背後，拳頭放肚臍上方、劍突下方，另一手包住往內上方戳 5 下。<span class="tag t-conv">手法位置為課堂慣例，Part 7 未描述</span></div>
+      <div class="act"><b class="t">變化題</b>「病人是孕婦」「施救者抱不住」→ 改胸戳（位置同壓胸）。<span class="tag t-conv">建議</span></div>
+      <div class="act"><b class="t">練習｜倒下轉 CPR</b>病人軟下去 → 扶著輕放地上 → 直接壓 30 下 → 打開呼吸道<b>先看口內</b>，看得到才拿 → 2 口氣 → 繼續。<span class="tag t-conv">建議</span></div>
+    </div>
+  </div>
+  <div class="tw">
+    <table>
+      <caption>成人／兒童／嬰兒：嚴重異物哽塞差異（Part 6、Part 7）</caption>
+      <thead><tr><th></th><th>成人</th><th>兒童（1 歲到青春期）</th><th>嬰兒（未滿 1 歲）</th></tr></thead>
+      <tbody>
+        <tr><td>清醒、嚴重阻塞</td><td>5 背擊 → 5 腹戳 <span class="pill p1">1 B-NR</span></td><td>5 背擊 → 5 腹戳 <span class="pill p1">1 C-LD</span></td><td>5 背擊 → 5 <b>胸戳</b> <span class="pill p1">1 C-LD</span></td></tr>
+        <tr><td>腹戳</td><td>可以（孕婦後期、抱不住改胸戳）</td><td>可以</td><td><b>不做</b>（可能傷腹部器官）<span class="tag t-sup">支持文字</span></td></tr>
+        <tr><td>胸戳手法</td><td>—</td><td>—</td><td><b>單手掌根</b>（取代舊的兩指法）<span class="tag t-upd">Updated</span></td></tr>
+        <tr><td>失去反應</td><td>CPR，從壓胸開始 <span class="pill p1">1 C-LD</span></td><td colspan="2">CPR，從壓胸開始，<b>不用摸脈搏</b> <span class="pill p1">1 C-LD</span></td></tr>
+        <tr><td>看得到的異物</td><td>拿掉 <span class="pill p1">1 C-EO</span></td><td colspan="2">拿掉 <span class="pill p1">1 C-LD</span></td></tr>
+        <tr><td>盲目手指掏</td><td>不要 <span class="pill p3">3: Harm C-LD</span></td><td colspan="2">不要 <span class="pill p3">3: Harm C-LD</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ 05 SPECIAL ============ -->
+<section class="ch" id="special" data-nav="特殊情境">
+  <div class="chhead"><span class="num">05</span><h2>特殊情境：標準流程什麼時候要轉彎</h2><span class="min">40 min</span></div>
+
+  <!-- 5.1 TCA -->
+  <h3 id="tca">5.1 創傷性心跳停止（TCA） <span class="mono" style="font-size:.7em;color:var(--time)">85–98′</span></h3>
+  <div class="warn"><b>來源說明（v4.6 以 AHA 為主）：</b>AHA 2025 <b>沒有</b>創傷性心跳停止專節。下表只用 AHA 2025 散在 Part 4／7／9 的相關條文與支持文字，AHA 沒寫的項目標「AHA 未提及」。ERC 2025 雖有創傷專節，這裡只留灰色小字「ERC 參考」，不是本課建議。英文為原文摘句。</div>
+  <div class="tw cmp">
+    <table>
+      <caption>創傷性心跳停止：AHA 2025 怎麼說</caption>
+      <thead><tr><th scope="col">主題</th><th scope="col">AHA 2025（本課依據）</th></tr></thead>
+      <tbody>
+      <tr><th scope="row">有沒有專節</th><td data-l="AHA 2025"><span class="aha-na">AHA 未提及</span><b>AHA 2025 無專節。</b>Part 7、Part 9、Part 10 都沒有創傷性心跳停止的章節或演算法；只有散在各章的相關條文與支持文字（見下）。<span class="ercref">ERC 參考：有創傷專節與 TCA 演算法（Fig. 8）。</span></td></tr>
+      <tr><th scope="row">壓胸 vs 可逆原因</th><td data-l="AHA 2025"><span class="aha-na">AHA 未提及</span>沒有針對創傷改變順序的條文。BLS 照 Part 7 一般流程：沒確定摸到脈搏就開始 CPR <span class="pill p1">1 C-LD</span>。<span class="ercref">ERC 參考：主張止血、呼吸道、胸部減壓等可逆原因同時處理，且優先於壓胸。</span></td></tr>
+      <tr><th scope="row">止血</th><td data-l="AHA 2025"><span class="aha-na">AHA 未提及</span>AHA 2025 復甦指引的建議表沒有 TCA 止血條文。<span class="tag t-tbd">止血見 AHA First Aid 指引，本頁未查</span><span class="ercref">ERC 參考：可壓迫的外出血用抬高、直接或間接加壓、加壓敷料、止血帶、局部止血劑。</span></td></tr>
+      <tr><th scope="row">呼吸道</th><td data-l="AHA 2025">頭頸創傷用推下顎、不要後仰 <span class="pill p1">1 C-EO</span>；推下顎＋輔助器仍打不開就改壓額抬下巴 <span class="pill p1">1 C-EO</span>；民眾不要用硬式頸圈 <span class="pill p3">3: Harm C-LD</span>。<br><small>Part 7・Opening the Airway After Head and Neck Trauma</small><span class="en">In cases of head and neck trauma, trained rescuers should open the airway of an adult by using a jaw thrust without head extension.</span><span class="ercref">ERC 參考：缺氧可能來自呼吸道阻塞、創傷性窒息、腦撞擊後呼吸停止。</span></td></tr>
+      <tr><th scope="row">現場停留 vs 運送</th><td data-l="AHA 2025">多數 OHCA 優先在現場做到持續 ROSC 再走 <span class="pill p2a">2a B-NR</span>，但限「沒有特殊情況」；支持文字舉創傷為<b>留在現場效益較低</b>的例子。<span class="tag t-sup">Part 4 §16</span><span class="en">Additional examples may be found where remaining on scene is less beneficial such as the example of circulatory arrest due to trauma.</span><span class="ercref">ERC 參考：避免拖長到院前時間，儘早預先通知創傷中心。</span></td></tr>
+      <tr><th scope="row">不開始／終止急救</th><td data-l="AHA 2025">現有 TOR 規則<b>不適用</b>於未經驗證的族群，包括創傷。<span class="tag t-sup">Part 9 §13 支持文字</span><span class="en">These TOR rules are inappropriate for populations in which they have not been validated, such as for patients with overdose, trauma, or IHCA.</span><span class="ercref">ERC 參考：另訂了創傷專用的不開始／終止條件，本頁不列。</span></td></tr>
+      <tr class="teach"><th scope="row">課堂怎麼教</th><td data-l="本課建議（依 AHA）"><b>照 AHA 教</b>：創傷沒有專屬流程，BLS 沿用一般 CPR（沒確定摸到脈搏就壓 <span class="pill p1">1 C-LD</span>）；頭頸創傷用推下顎、不要後仰 <span class="pill p1">1 C-EO</span>。AHA 把創傷列為「留在現場效益較低」的例子，所以邊做邊準備運送；一般的 TOR 規則<b>不適用</b>於創傷，不要拿來決定停止。止血 AHA 復甦指引未提及；課堂上有人手就同時加壓止血，不佔用壓胸與通氣的人。<span class="tag t-conv">課堂推論，非條文</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="duo">
+    <div class="c" style="grid-column:1/-1"><h4>課堂活動</h4>
+      <div class="act"><b class="t">情境（建議）</b>機車事故，大腿噴血、沒反應、摸不到脈搏。3 人小組：1 人上止血帶／加壓、1 人推下顎＋BVM、1 人壓胸並準備搬運毯快送；隊長 60 秒內決定「什麼時候走」。<span class="tag t-conv">建議</span></div>
+      <p class="ercref">ERC 參考：開胸、REBOA、雙側胸廓造口等侵入性處置屬醫院端，不在 BLS 範圍。</p>
+      <p style="font-size:.9em">可以跟 TCH-007 基礎課的 STB 止血單元串起來。<span class="tag t-conv">建議</span></p>
+    </div>
+  </div>
+
+  <!-- 5.1 drugs & shock (v4.5) -->
+  <div class="drx" id="tca-drx">
+    <h4 class="drxh">5.1 補充：藥物與電擊（BLS 層級）</h4>
+    <p class="drxn">AHA 2025 沒有創傷性心跳停止專節，也沒有創傷專屬的藥物或電擊條文，所以本課照 AHA 一般流程。ERC 只留灰色參考。</p>
+    <div class="tw cmp">
+      <table>
+        <caption>創傷性心跳停止的藥物與電擊：依 AHA 2025</caption>
+        <thead><tr><th scope="col">主題</th><th scope="col">AHA 2025（本課依據）</th></tr></thead>
+        <tbody>
+        <tr><th scope="row"><span class="lab lab-rx">藥物</span></th><td data-l="AHA 2025"><span class="aha-na">AHA 未提及</span>建議表<b>沒有</b>針對創傷心跳停止的藥物條文。BLS 層級本來就沒有給藥項目，照一般流程做 CPR；藥物、輸液、血品都留給 ALS／醫院端，本頁不列劑量。<span class="ercref">ERC 參考：升壓劑在 TCA 的角色不明確，處理可逆原因優先；骨盆固定、血品、IV 輸液、tranexamic acid 可以在轉送途中使用。</span></td></tr>
+        <tr><th scope="row"><span class="lab lab-sh">電擊／AED</span></th><td data-l="AHA 2025"><span class="aha-na">AHA 未提及</span>沒有創傷專屬的電擊條文。照 Part 7 一般 AED 流程：AED 貼上前持續 CPR <span class="pill p1">1 C-LD</span>（見 3.4）。<span class="ercref">ERC 參考：TCA 演算法第一格先問「比較像非創傷原因嗎？」，是的話走一般 ALS 流程；創傷初始節律以 PEA、asystole 為主，VF 只有 4%。</span></td></tr>
+        <tr class="teach"><th scope="row">課堂怎麼教</th><td data-l="本課建議（依 AHA）"><b>照 AHA 教</b>：創傷沒脈搏一樣 CPR＋AED，AED 到了就照一般流程貼（Part 7）；藥物都留給 ALS。課堂建議：多人在場時，貼 AED 的人和止血、通氣的人分開，<b>不要為了貼 AED 把止血或通氣的人手抽走</b>；「先倒下、才發生車禍」這類可能是內科原因的情況，更要照一般 AED 流程。<span class="tag t-conv">課堂推論，非條文</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 5.2 Drowning -->
+  <h3 id="drown">5.2 溺水 <span class="mono" style="font-size:.7em;color:var(--time)">98–110′</span></h3>
+  <div class="duo">
+    <div class="g"><h4>指引說</h4>
+      <div class="recs">
+        <div class="rec k1"><div class="badge"><span class="cor">1</span><span class="loe">B-NR</span></div><div>
+          <div class="zh">溺水後心跳停止、離開水面：做<b>有吹氣</b>的 CPR（壓胸＋通氣）。</div>
+          <div class="en">For adults and children in cardiac arrest following drowning and after removal from the water, CPR with breaths and chest compressions should be provided.</div>
+          <div class="ref">Part 10・Drowning CPR #1</div></div></div>
+        <div class="rec k1"><div class="badge"><span class="cor">1</span><span class="loe">B-NR</span></div><div>
+          <div class="zh"><b>先開始有吹氣的 CPR，再貼 AED</b>。</div>
+          <div class="en">For adults and children in cardiac arrest following drowning, CPR with breaths should be started before AED or defibrillator application.</div>
+          <div class="ref">Part 10・AED First vs CPR First #1</div></div></div>
+        <div class="rec k1"><div class="badge"><span class="cor">1</span><span class="loe">C-EO</span></div><div>
+          <div class="zh">受過訓練的施救者，有氧氣就給。</div>
+          <div class="en">Trained rescuers should provide supplemental oxygen if available to adults and children with cardiac arrest following drowning.</div>
+          <div class="ref">Part 10・Oxygen #1</div></div></div>
+        <div class="rec k2a"><div class="badge"><span class="cor">2a</span><span class="loe">B-NR</span></div><div>
+          <div class="zh">溺水心跳停止使用 AED 是合理的。</div>
+          <div class="en">AED use is reasonable for adults and children in cardiac arrest following drowning.</div>
+          <div class="ref">Part 10・AED First vs CPR First #2</div></div></div>
+        <div class="rec k2a"><div class="badge"><span class="cor">2a</span><span class="loe">C-EO</span></div><div>
+          <div class="zh">用<b>第一個拿得到的方式</b>給氣（口對口、口袋面罩、BVM），不要為了等器材延遲通氣。</div>
+          <div class="en">It is reasonable for trained rescuers to provide breaths or ventilations by the first means available (eg, mouth-to-mouth, pocket mask, or bag-mask ventilation) for adults and children in cardiac or respiratory arrest following drowning to avoid any delay in ventilation.</div>
+          <div class="ref">Part 10・Prehospital Ventilation #1</div></div></div>
+        <div class="rec k2a"><div class="badge"><span class="cor">2a</span><span class="loe">B-NR</span></div><div>
+          <div class="zh">成人溺水心跳停止，施救者不願、不會或不能給氣時，只壓胸到救援抵達也可以。</div>
+          <div class="en">For adults in cardiac arrest following drowning, if the rescuer is unwilling, untrained, or unable to provide breaths, it is reasonable to provide chest compressions only, until help arrives.</div>
+          <div class="ref">Part 10・Drowning CPR #2</div></div></div>
+        <div class="rec k2b"><div class="badge"><span class="cor">2b</span><span class="loe">C-EO</span></div><div>
+          <div class="zh">受過訓練的施救者，可以考慮<b>先給氣再壓胸</b>（A-B-C 順序）。</div>
+          <div class="en">For adults and children in cardiac arrest following drowning, it may be reasonable for trained rescuers to initiate CPR with breaths first followed by chest compressions.</div>
+          <div class="ref">Part 10・Drowning CPR #4</div></div></div>
+        <div class="rec k2b"><div class="badge"><span class="cor">2b</span><span class="loe">C-LD</span></div><div>
+          <div class="zh">受過適當訓練、不危及自身安全時，可以在<b>水中</b>就對沒反應的溺水者給氣。</div>
+          <div class="en">It may be reasonable for appropriately trained rescuers to provide in-water breaths to an unresponsive adult or child who has drowned if it does not compromise their own safety.</div>
+          <div class="ref">Part 10・In-Water Breaths #1</div></div></div>
+      </div>
+      <ul style="font-size:.92em">
+        <li>溺水通常先呼吸停止、再心跳停止；10 秒內很難分辨，所以要同時重視恢復呼吸與循環。<span class="tag t-sup">支持文字</span></li>
+        <li>在呼吸停止階段就用通氣中斷溺水過程，死亡率 44%；進展到心跳停止才 CPR，死亡率 93%。<span class="tag t-sup">支持文字</span></li>
+        <li>可電擊節律只佔溺水心跳停止的 2%–12%。一項 919 人研究中，EMS 到達前先貼 AED（32.4%）與較差神經預後相關（aOR 0.42），可能是延誤了有吹氣的 CPR。<span class="tag t-sup">支持文字</span></li>
+        <li>先給氣的前提：不能因為等通氣器材而延誤壓胸。<span class="tag t-sup">支持文字</span></li>
+      </ul>
+    </div>
+    <div class="c"><h4>課堂怎麼教</h4>
+      <p><b>一句話</b>：溺水是缺氧，<b>氣</b>是治療本身；先 CPR（含吹氣）再 AED。</p>
+      <div class="act"><b class="t">對比題</b>同一張投影片放「一般 OHCA」vs「溺水」：AED 什麼時候貼？可不可以只壓胸？從 C 還是 A 開始？讓學員自己填。<span class="tag t-conv">建議</span></div>
+      <div class="act"><b class="t">情境（建議）</b>泳池救起、沒呼吸：第一個拿到的是口袋面罩 → 不等 BVM，先給 → 30:2 → AED 到了再貼。<span class="tag t-conv">建議</span></div>
+      <p style="font-size:.9em">延伸：TCH-001 的 <span class="mono">drowning-2025.html</span>（EMT-P 版）有更完整的水中通氣、分級與頸椎內容。</p>
+    </div>
+  </div>
+
+  <!-- 5.2 drugs & shock (v4.5) -->
+  <div class="drx" id="drown-drx">
+    <h4 class="drxh">5.2 補充：藥物與電擊（BLS 層級）</h4>
+    <p class="drxn">溺水病人常合併低體溫。AHA Part 10 的低體溫條文把電擊與給藥分開寫，這裡一併整理，全部照 AHA。</p>
+    <div class="duo">
+      <div class="g"><h4>指引說</h4>
+        <span class="lab lab-rx">藥物</span>
+        <ul class="dl">
+          <li>BLS 唯一的「藥」是<b>氧氣</b>：有就給（上方 Oxygen #1 <span class="pill p1">1 C-EO</span>）。<span class="ercref">ERC 參考：一開始 5 口通氣，有的話用 100% 氧氣。</span></li>
+          <li>Part 10 溺水章節<b>沒有</b>任何藥物條文。</li>
+          <li>低體溫：拿掉濕衣服、蓋毯子屬於被動回溫（支持文字舉例）；完整急救要<b>和回溫同時進行</b>。<span class="tag t-sup">支持文字</span></li>
+        </ul>
+        <div class="recs">
+          <div class="rec k1"><div class="badge"><span class="cor">1</span><span class="loe">C-LD</span></div><div>
+            <div class="zh">危及生命的環境性低體溫成人、沒有明顯致命傷：立刻做完整急救，並且和回溫同時進行。（兒童同一條為 <span class="pill p1">1 C-EO</span>）</div>
+            <div class="en">For adults with life-threatening environmental hypothermia with no obvious lethal injury, full resuscitative measures should be performed immediately and continued concurrently with rewarming.</div>
+            <div class="ref">Part 10・Hypothermia (Adults) #1</div></div></div>
+        </div>
+        <span class="lab lab-als">留給 ALS</span>
+        <ul class="dl">
+          <li>AHA：低體溫心跳停止，可以考慮等中心體溫 ≥30 °C 再給 epinephrine。<span class="pill p2b">2b C-EO</span>（成人、兒童同級）<span class="tag t-sup">Part 10・Hypothermia #7</span></li>
+          <li>劑量與間隔屬 ALS，本頁不列。<span class="ercref">ERC 參考：低於 30 °C 時 adrenaline 會累積；30–35 °C 時把給藥間隔拉長。</span></li>
+        </ul>
+        <span class="lab lab-sh">電擊／AED</span>
+        <ul class="dl">
+          <li><b>順序</b>：先開始有吹氣的 CPR，再貼 AED <span class="pill p1">1 B-NR</span>；溺水使用 AED 是合理的 <span class="pill p2a">2a B-NR</span>（見上方條文）。</li>
+          <li>AED 在溺水心跳停止是可行、安全的；可電擊節律只佔 2%–12%，但有的話存活機會較高。<span class="tag t-sup">支持文字</span><span class="ercref">ERC 參考：溺水流程（Fig. 9）寫「Attach AED as soon as able」，並強調 CPR 不應因為貼 AED 而延誤。</span></li>
+        </ul>
+        <div class="recs">
+          <div class="rec k2a"><div class="badge"><span class="cor">2a</span><span class="loe">C-EO</span></div><div>
+            <div class="zh">在心跳停止風險高的地方（包括水域環境）設置公眾 AED 計畫是合理的。</div>
+            <div class="en">Implementation of public access defibrillation programs is reasonable in areas where there is a high risk of cardiac arrest, including aquatic environments.</div>
+            <div class="ref">Part 10・Public Access Defibrillation for Drowning #1</div></div></div>
+          <div class="rec k2b"><div class="badge"><span class="cor">2b</span><span class="loe">C-LD</span></div><div>
+            <div class="zh">成人<b>低體溫</b>心跳停止：可以考慮先電 <b>1 次</b>，沒成功就等中心體溫 ≥30 °C 再電。（兒童同一條為 <span class="pill p2b">2b C-EO</span>）</div>
+            <div class="en">For adults in hypothermic cardiac arrest, it may be reasonable to defibrillate once and if unsuccessful, defer further defibrillation until the core temperature is ≥30 °C (86 °F).</div>
+            <div class="ref">Part 10・Hypothermia (Adults) #5／(Children) #6</div></div></div>
+        </div>
+        <ul class="dl">
+          <li><b>本課照 AHA</b>：低體溫心跳停止，可以考慮<b>先電 1 次</b>，沒成功就等中心體溫 ≥30 °C 再電（上方 Hypothermia #5 <span class="pill p2b">2b C-LD</span>；兒童 #6 <span class="pill p2b">2b C-EO</span>）。2b 是「可以考慮」，不是硬性規定。<span class="ercref">ERC 參考：VF 在電 3 次後仍持續，才延後到中心體溫 &gt;30 °C 再電。</span></li>
+          <li><b>擦乾胸口</b>：<span class="aha-na">AHA 未提及</span>AHA 2025 Part 10 沒有這句條文（ERC 2025 Special Circumstances 也沒有）。AHA 2000 年版指引的「通用 AED 步驟」寫的是病人明顯流汗時先擦乾胸口（<a href="https://www.ahajournals.org/doi/10.1161/circ.102.suppl_1.i-60" target="_blank" rel="noopener">2000 Part 4</a>，舊版）。現行依 AED 原廠說明書。<span class="tag t-tbd">待查證：2025 版出處</span></li>
+        </ul>
+      </div>
+      <div class="c"><h4>課堂怎麼教</h4>
+        <p><b>一句話</b>：溺水的「藥」是氧氣，「電」排在吹氣之後。</p>
+        <div class="act"><b class="t">情境（建議）</b>泳池邊：第一位施救者先給氣、開始 30:2；第二位拿 AED 回來時，先把病人移離積水處、拿掉濕衣服、擦乾胸口再貼片，貼片時第一位<b>繼續壓</b>。<span class="tag t-conv">課堂慣例</span></div>
+        <p style="font-size:.9em">課堂照 AHA 教「低體溫：電 1 次，沒成功就等中心體溫 ≥30 °C 再電」<span class="pill p2b">2b C-LD</span>。BLS 現場量不到中心體溫，這時怎麼做 <span class="aha-na">AHA 未提及</span>。課堂建議：BLS 照 AED 語音提示操作，記下<b>已電幾次</b>，交班時講清楚，由 ALS／醫院端依體溫決定要不要延後再電。<span class="tag t-conv">課堂推論，非條文</span></p>
+        <p style="font-size:.9em">BLS 不給 epinephrine；只要記得「低體溫時，ALS 可能延後給藥、延後再電」，交班時講清楚<b>落水時間、水溫、已電幾次</b>。<span class="tag t-conv">建議</span></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5.3 Pregnancy -->
+  <h3 id="preg">5.3 孕婦心跳停止（含 OHCA） <span class="mono" style="font-size:.7em;color:var(--time)">110–125′</span></h3>
+  <div class="duo">
+    <div class="g"><h4>指引說</h4>
+      <div class="recs">
+        <div class="rec k1"><div class="badge"><span class="cor">1</span><span class="loe">C-LD</span></div><div>
+          <div class="zh">子宮底在<b>肚臍或更高</b>時，壓胸的同時要<b>徒手把子宮往左推</b>（manual LUD）。</div>
+          <div class="en">Manual left lateral uterine displacement should be provided in conjunction with chest compressions for a pregnant patient in cardiac arrest when the fundal height is at or above the umbilicus.</div>
+          <div class="ref">Part 10・Pregnant Patients #4</div></div></div>
+        <div class="rec k1"><div class="badge"><span class="cor">1</span><span class="loe">C-LD</span></div><div>
+          <div class="zh"><b>呼吸道處置要優先</b>。</div>
+          <div class="en">Airway management should be prioritized during the resuscitation of a pregnant patient in cardiac arrest.</div>
+          <div class="ref">Part 10・Pregnant Patients #5</div></div></div>
+        <div class="rec k1"><div class="badge"><span class="cor">1</span><span class="loe">B-NR</span></div><div>
+          <div class="zh">子宮底在肚臍或更高、標準急救未達 ROSC：要做 <b>resuscitative delivery</b>。</div>
+          <div class="en">Resuscitative delivery is indicated for a pregnant patient in cardiac arrest when fundal height is at or above the umbilicus and ROSC is not achieved with standard resuscitation.</div>
+          <div class="ref">Part 10・Pregnant Patients #1</div></div></div>
+        <div class="rec k1"><div class="badge"><span class="cor">1</span><span class="loe">B-NR</span></div><div>
+          <div class="zh"><b>一確認心跳停止就開始準備</b>，目標 <b>5 分鐘內完成</b>生產。<span class="tag t-upd">Updated</span></div>
+          <div class="en">Preparation for resuscitative delivery for a pregnant patient in cardiac arrest should begin at the recognition of cardiac arrest, with the goal to complete delivery by 5 minutes.</div>
+          <div class="ref">Part 10・Pregnant Patients #2</div></div></div>
+        <div class="rec k1"><div class="badge"><span class="cor">1</span><span class="loe">C-LD</span></div><div>
+          <div class="zh">院內心跳停止：在<b>原地</b>做 resuscitative delivery，不要搬去開刀房。</div>
+          <div class="en">Resuscitative delivery for a pregnant patient with IHCA should be performed at the location of the arrest, without attempts to move the pregnant patient to the operating room.</div>
+          <div class="ref">Part 10・Pregnant Patients #3</div></div></div>
+        <div class="rec k2a"><div class="badge"><span class="cor">2a</span><span class="loe">C-EO</span></div><div>
+          <div class="zh">IV／IO 打在<b>上肢</b>，不打下肢。</div>
+          <div class="en">Placing IV or IO access in the upper extremities as opposed to the lower extremities is reasonable for a pregnant patient in cardiac arrest.</div>
+          <div class="ref">Part 10・Pregnant Patients #7</div></div></div>
+        <div class="rec k2a"><div class="badge"><span class="cor">2a</span><span class="loe">C-EO</span></div><div>
+          <div class="zh">正在打 IV 硫酸鎂時心跳停止，給鈣是合理的。</div>
+          <div class="en">Administration of calcium to a pregnant patient who develops cardiac arrest while receiving IV magnesium sulfate is reasonable.</div>
+          <div class="ref">Part 10・Pregnant Patients #8</div></div></div>
+        <div class="rec k3"><div class="badge"><span class="cor">3</span><span class="loe">C-EO</span></div><div>
+          <div class="zh">移除胎兒監視器、心跳停止時<b>不做胎兒監測</b>。<b>無益</b>。</div>
+          <div class="en">Fetal monitors should be removed, and fetal monitoring should not be performed for a pregnant patient in cardiac arrest. (3: No Benefit)</div>
+          <div class="ref">Part 10・Pregnant Patients #9</div></div></div>
+        <div class="rec k1"><div class="badge"><span class="cor">1</span><span class="loe">C-LD</span></div><div>
+          <div class="zh">建立能處理孕婦心跳停止的團隊、能取得 resuscitative delivery 的人力與器材、做角色訓練（三條）。</div>
+          <div class="en">Establishing a team prepared to manage cardiac arrest in a pregnant person is recommended. / …access resources…to perform a resuscitative delivery at the diagnosis of cardiac arrest… / Role-specific training should be provided…</div>
+          <div class="ref">Part 10・Team Preparation #1–3</div></div></div>
+      </div>
+      <ul style="font-size:.92em">
+        <li><b>除顫</b>：演算法第一格「提供高品質 CPR、子宮底在肚臍以上時持續左推子宮、需要時用 AED／電擊器」——沒有孕婦專屬的電擊修改。<span class="tag t-algo">孕婦演算法</span></li>
+        <li>胎兒監視器拆除，也是為了避免干擾及時電擊、減少電擊時施救者受傷風險。<span class="tag t-sup">支持文字</span></li>
+        <li>徒手左推子宮讓病人保持仰躺；8 個模擬交叉試驗的統合分析顯示，仰躺比左側傾斜的壓胸技術更好。Figure 6 有雙手法（A）與單手法（B）。<span class="tag t-sup">支持文字</span></li>
+        <li>resuscitative delivery 的主要目的是<b>救媽媽</b>（解除主動脈下腔靜脈壓迫、把子宮內的血送回循環）；新生兒預後是次要好處。<span class="tag t-sup">支持文字</span></li>
+        <li>「4 分鐘開始、5 分鐘完成」1986 年提出；4 分鐘約等於 2 輪 CPR。英國資料：存活者從心跳停止到生產 3 分鐘，未存活者 12 分鐘。<span class="tag t-sup">支持文字</span></li>
+        <li>OHCA：要在高品質急救的同時，快速送到能安全做這項處置的醫院。法國 55 名孕婦 OHCA，30 天存活 14.5%。<span class="tag t-sup">支持文字</span></li>
+        <li>孕婦按壓位置是否要調整：2025 Part 10 建議表<b>沒有</b>相關條文。<span class="tag t-tbd">待查證：是否在其他章節</span></li>
+      </ul>
+      <figure><img src="figs/fig7-p10-uterine-displacement.png" alt="Part 10 Figure 6 徒手左推子宮：A 雙手法，B 單手法" loading="lazy" width="600" height="263" style="width:100%">
+        <figcaption><b>Part 10 Figure 6</b>　急救中徒手左推子宮（manual LUD）：A 雙手法、B 單手法。<br><span lang="en">Manual left lateral uterine displacement performed with 2-handed technique (A) and 1-handed technique (B) during resuscitation.</span><br>來源：<a href="https://cpr.heart.org/en/resuscitation-science/cpr-and-ecc-guidelines/adult-and-pediatric-special-circumstances-of-resuscitation" target="_blank">2025 AHA Part 10 Special Circumstances</a>。© 2025 AHA，僅供教學。</figcaption></figure>
+    </div>
+    <div class="c"><h4>課堂怎麼教</h4>
+      <p><b>一句話</b>：孕婦一樣壓、一樣電，再加兩件事——<b>手把肚子往左推</b>、<b>從第 0 分鐘開始倒數 5 分鐘</b>。</p>
+      <div class="act"><b class="t">練習｜左推子宮</b>假人肚子綁枕頭或水袋當子宮（道具為建議）。一人壓胸、一人做左推子宮，雙手法、單手法都試；站位與施力方向請對照本節的 Part 10 Figure 6。</div>
+      <div class="act"><b class="t">情境（建議）</b>計時員從「確認心跳停止」開始計時，第 4 分鐘喊時間。院內組：要能說出「原地做、叫婦產科／急診、新生兒團隊」；院外組：要能說出「通報醫院是孕婦、預估週數、快送」。<span class="tag t-conv">建議</span></div>
+      <p style="font-size:.9em">孕婦哽塞（見 04）：改胸戳，可以在這裡再複習一次。</p>
+    </div>
+  </div>
+
+  <!-- 5.3 drugs & shock (v4.5) -->
+  <div class="drx" id="preg-drx">
+    <h4 class="drxh">5.3 補充：藥物與電擊（BLS 層級）</h4>
+    <div class="duo">
+      <div class="g"><h4>指引說</h4>
+        <span class="lab lab-rx">藥物</span>
+        <ul class="dl">
+          <li>BLS 層級沒有孕婦專屬的給藥項目。<span class="ercref">ERC 參考：孕婦急救用藥（adrenaline、amiodarone、lidocaine）劑量與時機和一般成人相同。</span></li>
+          <li>AHA 孕婦演算法第 3 格：「If receiving IV magnesium, stop magnesium and give calcium.」——<b>關掉硫酸鎂點滴</b>是院內護理人員在 ALS 到之前就能做的事；給鈣屬 ALS（Pregnant Patients #8 <span class="pill p2a">2a C-EO</span>，見上方）。<span class="tag t-algo">孕婦演算法</span></li>
+        </ul>
+        <span class="lab lab-als">留給 ALS</span>
+        <ul class="dl">
+          <li>IV／IO 打在上肢 <span class="pill p2a">2a C-EO</span>、給鈣 <span class="pill p2a">2a C-EO</span>（見上方條文）。<span class="ercref">ERC 參考：Table 12 另列鈣、鎂、tranexamic acid 的使用時機，屬 ALS，本頁不列。</span></li>
+        </ul>
+        <span class="lab lab-sh">電擊／AED</span>
+        <ul class="dl">
+          <li>AHA 演算法第 1 格：「Use AED/defibrillator when indicated.」——<b>沒有</b>孕婦專屬的電擊修改。<span class="tag t-algo">孕婦演算法</span></li>
+          <li>胎兒監視器要<b>拔掉</b>、不做胎兒監測（Pregnant Patients #9 <span class="pill p3">3: No Benefit C-EO</span>，見上方）。支持文字的理由之一：拔掉可以避免干擾及時電擊，並減少電擊時施救者受傷的風險。<span class="tag t-sup">支持文字</span></li>
+          <li><b>AHA 和 ERC 一致</b>：孕婦<b>照常電</b>，電擊前把胎兒監視器拔掉。<span class="ercref">ERC 參考：電擊能量和非孕婦成人一樣；前側－側面貼法時，貼片貼在乳房組織下方、不要貼在上面。</span></li>
+          <li>胸罩：可以調整胸罩位置貼片，不一定要脫掉 <span class="pill p2b">2b C-EO</span>（Part 7，一般成人條文，見 02）。</li>
+          <li><span class="aha-na">AHA 未提及</span>孕婦專屬的電擊能量。AHA 演算法照一般流程「Use AED/defibrillator when indicated」，沒有另外調整。</li>
+        </ul>
+      </div>
+      <div class="c"><h4>課堂怎麼教</h4>
+        <p><b>一句話</b>：孕婦<b>照常電</b>；電之前胎兒監測要拔掉。（AHA 演算法＋Pregnant Patients #9）</p>
+        <div class="act"><b class="t">情境（建議）</b>產房病人心跳停止：一人壓胸、一人左推子宮、一人拔胎兒監測並貼 AED；AED 分析與電擊時，左推子宮的人也要「離手」。<span class="tag t-conv">課堂慣例</span></div>
+        <p style="font-size:.9em">常見迷思：「怕電到胎兒，不敢電」或「電擊時胎兒監測不用拔」。AHA 是<b>照常電</b>，而且監測器要拔掉（ERC 也一樣）。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5.4 Opioid (v4.5) -->
+  <h3 id="opioid">5.4 鴉片類中毒：naloxone <span class="mono" style="font-size:.7em;color:var(--time)">延伸・備課用</span></h3>
+  <div class="warn"><b>先看 3.6：</b>有脈搏、呼吸停止給通氣與拮抗劑、心跳停止時拮抗劑不能干擾 CPR、對拮抗劑有反應的成人要觀察，這幾條已經在 <a href="#rescue">3.6 有脈搏沒呼吸・鴉片類</a>，這裡<b>不重複</b>，只補 3.6 沒寫的 Part 10 條文。</div>
+  <div class="duo">
+    <div class="g"><h4>指引說</h4>
+      <span class="lab lab-rx">藥物</span>
+      <div class="recs">
+        <div class="rec k1"><div class="badge"><span class="cor">1</span><span class="loe">B-NR</span></div><div>
+          <div class="zh">一般民眾遇到疑似鴉片過量、沒反應、沒有正常呼吸的成人或兒童：做<b>有吹氣</b>的 CPR。</div>
+          <div class="en">For lay rescuers assisting an adult or child with suspected opioid overdose who is unresponsive and not breathing normally, CPR with breaths should be provided.</div>
+          <div class="ref">Part 10・Opioid Overdose #2</div></div></div>
+        <div class="rec k2b"><div class="badge"><span class="cor">2b</span><span class="loe">C-EO</span></div><div>
+          <div class="zh"><b>兒童</b>疑鴉片過量心跳停止，可以給拮抗劑，前提是不干擾高品質 CPR。</div>
+          <div class="en">For lay and trained rescuers, opioid antagonist administration may be reasonable for children in cardiac arrest with suspected opioid overdose, provided that opioid antagonist (eg, naloxone) administration does not interfere with the delivery of standard resuscitation including high-quality compression-ventilation CPR.</div>
+          <div class="ref">Part 10・Opioid Overdose #6</div></div></div>
+        <div class="rec k1"><div class="badge"><span class="cor">1</span><span class="loe">C-EO</span></div><div>
+          <div class="zh"><b>兒童</b>對拮抗劑有反應，也要在醫療場所觀察到再次呼吸抑制風險低、意識與生命徵象正常。</div>
+          <div class="en">Children with opioid overdose who respond to opioid antagonists (eg, naloxone) should be observed in a healthcare setting until a low risk of recurrent respiratory depression, normal level of consciousness, and normal vital signs are achieved.</div>
+          <div class="ref">Part 10・Following Successful Response #2</div></div></div>
+        <div class="rec k2a"><div class="badge"><span class="cor">2a</span><span class="loe">C-LD</span></div><div>
+          <div class="zh">有反應後又再次呼吸抑制的成人，<b>重複給藥</b>是有益的。（兒童同一條為 <span class="pill p2a">2a C-EO</span>）</div>
+          <div class="en">Repeated doses of opioid antagonists (eg, naloxone) can be beneficial in adults with opioid overdose who respond to opioid antagonists and develop recurrent respiratory depression.</div>
+          <div class="ref">Part 10・Following Successful Response #3／#4</div></div></div>
+        <div class="rec k2a"><div class="badge"><span class="cor">2a</span><span class="loe">B-NR</span></div><div>
+          <div class="zh">懷疑鴉片類合併 benzodiazepine 中毒、有呼吸抑制或呼吸停止的成人：<b>先給 naloxone</b>，再考慮其他解毒劑。（兒童同一條為 <span class="pill p2a">2a C-EO</span>）</div>
+          <div class="en">If combined opioid and benzodiazepine poisoning is suspected, it is reasonable to administer naloxone first (before other antidotes) in adults with respiratory depression or respiratory arrest.</div>
+          <div class="ref">Part 10・Benzodiazepine Poisoning (Adults #1／Children #2)</div></div></div>
+        <div class="rec k1"><div class="badge"><span class="cor">1</span><span class="loe">C-LD</span></div><div>
+          <div class="zh">因鴉片過量就醫的成人，離院時要<b>拿到拮抗劑並接受衛教</b>。（兒童或照顧者同一條為 <span class="pill p1">1 C-EO</span>）</div>
+          <div class="en">Adults who are treated for opioid overdose should receive an opioid antagonist (eg, naloxone) and teaching at the time of discharge from a healthcare setting.</div>
+          <div class="ref">Part 10・Opioid Antagonist Education and Distribution #1／#2</div></div></div>
+      </div>
+      <ul class="dl">
+        <li>Part 10 先 CPR、再給拮抗劑的順序，<b>和 naloxone／nalmefene 仿單寫法不同</b>；AHA 明講這是刻意的。<span class="tag t-sup">支持文字</span></li>
+        <li>美國有兩種拮抗劑：naloxone 與 nalmefene；目前 naloxone 的臨床資料較多。<span class="tag t-sup">支持文字</span></li>
+        <li>非鴉片類鎮靜藥造成的呼吸抑制，通常<b>不會</b>被拮抗劑逆轉。<span class="tag t-sup">支持文字</span></li>
+        <li>劑量：Part 10 Table 4，本頁不列。<span class="tag t-tbd">劑量未摘錄</span></li>
+      </ul>
+      <span class="lab lab-als">留給 ALS</span>
+      <ul class="dl"><li>IV naloxone 滴定或持續輸注、benzodiazepine 的其他解毒劑。</li></ul>
+      <span class="lab lab-sh">電擊／AED</span>
+      <ul class="dl">
+        <li>沒有鴉片類專屬的電擊條文。拮抗劑<b>不會逆轉 VF</b>，沒有在做 CPR 的心跳停止病人也幾乎不會因拮抗劑受益——所以照一般流程 CPR＋AED。<span class="tag t-sup">支持文字</span><span class="en" lang="en" style="display:block;font-size:.82em;color:var(--muted)">Opioid antagonists are extremely unlikely to benefit an adult or child in cardiac arrest who is not receiving CPR and do not reverse VF.</span></li>
+      </ul>
+      <span class="lab lab-rx">本課照 AHA：心跳停止時的拮抗劑</span>
+      <ul class="dl">
+        <li>疑鴉片過量的成人<b>心跳停止</b>：<b>可以考慮</b>給拮抗劑，前提是不干擾高品質 CPR <span class="pill p2b">2b B-NR</span>（Part 10・Opioid Overdose #5，條文全文見 3.6；兒童 #6 <span class="pill p2b">2b C-EO</span> 見上方）。<span class="ercref">ERC 參考：現有證據不足以建議在鴉片中毒造成的心跳停止時給拮抗劑。</span></li>
+        <li><span class="ercref">ERC 參考：中毒現場先顧自身安全，直接皮膚接觸（例如口對口）可能傳遞毒物。</span></li>
+      </ul>
+    </div>
+    <div class="c"><h4>課堂怎麼教</h4>
+      <p><b>一句話</b>：有脈搏 → 先給氣、再給 naloxone；沒脈搏 → CPR＋AED 照做，naloxone <b>可以考慮</b>，但只在不打斷 CPR 時加（AHA <span class="pill p2b">2b B-NR</span>）。</p>
+      <div class="act"><b class="t">分工（建議）</b>三人組：A 壓胸、B 通氣、C 拿 AED；naloxone 由第 4 人或 AED 貼好後的空檔給，<b>不從 A、B 抽人</b>。<span class="tag t-conv">建議</span></div>
+      <p style="font-size:.9em">醒了不等於沒事：拮抗劑可能比鴉片類先退，要觀察、可能要再給。台灣民眾取得與 EMT 給藥權限見 <a href="#tw">07 台灣落地補充</a>。</p>
+    </div>
+  </div>
+
+  <!-- 5.5 Anaphylaxis (v4.5) -->
+  <h3 id="anaph">5.5 過敏性休克：腎上腺素自動注射筆 <span class="mono" style="font-size:.7em;color:var(--time)">延伸・備課用</span></h3>
+  <div class="warn"><b>來源說明：</b>還沒心跳停止時的自動注射筆條文在 <b>AHA／美國紅十字會 2024 First Aid 指引</b>；Part 10 只談<b>已經心跳停止</b>的過敏性休克。兩者分開標。</div>
+  <div class="duo">
+    <div class="g"><h4>指引說</h4>
+      <span class="lab lab-rx">藥物：還沒心跳停止（First Aid 2024）</span>
+      <div class="recs">
+        <div class="rec k1"><div class="badge"><span class="cor">1</span><span class="loe">B-NR</span></div><div>
+          <div class="zh">發生過敏性休克、手邊有腎上腺素自動注射筆：病人應<b>自己打</b>。</div>
+          <div class="en">If a person experiences anaphylaxis and an epinephrine autoinjector is available, the person should self-administer the autoinjector.</div>
+          <div class="ref">AHA/ARC First Aid 2024・Anaphylaxis #1</div></div></div>
+        <div class="rec k1"><div class="badge"><span class="cor">1</span><span class="loe">C-EO</span></div><div>
+          <div class="zh">病人需要幫忙時，急救者應<b>協助他使用自己的</b>注射筆。</div>
+          <div class="en">A first aid provider should assist a person experiencing anaphylaxis to use their autoinjector if assistance is required.</div>
+          <div class="ref">AHA/ARC First Aid 2024・Anaphylaxis #2</div></div></div>
+        <div class="rec k1"><div class="badge"><span class="cor">1</span><span class="loe">C-EO</span></div><div>
+          <div class="zh">過敏性休克要啟動緊急救護系統。</div>
+          <div class="en">If a person experiences anaphylaxis, the emergency response system should be activated.</div>
+          <div class="ref">AHA/ARC First Aid 2024・Anaphylaxis #3</div></div></div>
+        <div class="rec k2b"><div class="badge"><span class="cor">2b</span><span class="loe">B-NR</span></div><div>
+          <div class="zh">第一劑沒反應、救護車還要超過 <b>5–10 分鐘</b>才到：可以考慮打第二劑。</div>
+          <div class="en">If a person with anaphylaxis does not respond to the initial dose of epinephrine and arrival of EMS will exceed 5 to 10 minutes, a repeat dose may be considered.</div>
+          <div class="ref">AHA/ARC First Aid 2024・Anaphylaxis #4</div></div></div>
+      </div>
+      <ul class="dl">
+        <li>通常打在<b>大腿外側</b>肌肉；約 7%–18% 的過敏性休克需要不只一劑。<span class="tag t-sup">First Aid 2024 支持文字</span></li>
+        <li><span class="ercref">ERC 參考：一懷疑就 IM 注射，成人 0.5 mg、大腿外側中段，依反應 3–5 分鐘後重複；病人要躺著，不要坐起或站起。</span></li>
+        <li><b>第二劑時機，本課照 AHA</b>：第一劑沒反應、救護車還要<b>超過 5–10 分鐘</b>才到，可以考慮打第二劑 <span class="pill p2b">2b B-NR</span>（First Aid 2024・Anaphylaxis #4，見上方）。兒童劑量本頁不列。<span class="tag t-tbd">兒童劑量未摘錄</span></li>
+      </ul>
+      <span class="lab lab-rx">藥物：已經心跳停止（Part 10）</span>
+      <div class="recs">
+        <div class="rec k2b"><div class="badge"><span class="cor">2b</span><span class="loe">C-EO</span></div><div>
+          <div class="zh">過敏性休克造成心跳停止時，<b>一般過敏劑量的 IM epinephrine 效果不確定</b>。</div>
+          <div class="en">For adults and children in cardiac arrest from anaphylaxis, the effectiveness of standard anaphylaxis intramuscular (IM) epinephrine dose is uncertain.</div>
+          <div class="ref">Part 10・Anaphylaxis #5</div></div></div>
+      </div>
+      <ul class="dl">
+        <li>Part 10 重點摘要：心跳停止時，自動注射筆或 IM 的一般劑量<b>可能沒有幫助</b>。所以心跳停止後重點回到 CPR＋AED，不要為了找注射筆延誤。<span class="tag t-sup">Take-home #1</span></li>
+      </ul>
+      <span class="lab lab-als">留給 ALS</span>
+      <ul class="dl"><li>IV 等張輸液 <span class="pill p2a">2a C-EO</span>、ECPR <span class="pill p2a">2a C-EO</span>、併用 β-blocker 時 glucagon <span class="pill p2b">2b C-EO</span>、rocuronium 引起者 sugammadex 效果不確定 <span class="pill p2b">2b C-EO</span>（Part 10・Anaphylaxis #1–4）。<span class="ercref">ERC 參考：照標準 ALS，含 IV adrenaline。</span></li></ul>
+      <span class="lab lab-sh">電擊／AED</span>
+      <ul class="dl"><li><span class="aha-na">AHA 未提及</span>過敏性休克專屬的電擊條文，照一般流程。<span class="ercref">ERC 參考：手術期間案例系列中，過敏性心跳停止 94% 初始節律是 PEA。</span></li></ul>
+    </div>
+    <div class="c"><h4>課堂怎麼教</h4>
+      <p><b>一句話</b>：有脈搏 → 幫他打他自己的筆、叫救護車；第一劑沒反應、救護車還要超過 5–10 分鐘，考慮第二劑。沒脈搏 → CPR＋AED，筆退到後面。</p>
+      <div class="act"><b class="t">練習（建議）</b>用訓練筆示範「大腿外側、隔衣服可打」的動作；計時員喊「5 分鐘了，救護車還要 10 分鐘」，讓學員判斷要不要打第二劑。<span class="tag t-conv">建議</span>「可隔衣服打」依產品說明書。<span class="tag t-tbd">待查證</span></div>
+      <p style="font-size:.9em">台灣自動注射筆取得方式、學校／機構是否備用、EMT 可否協助施打，依各單位規定。<span class="tag t-tbd">待查證</span></p>
+    </div>
+  </div>
+
+  <!-- 5.6 Electrocution (v4.5) -->
+  <h3 id="elec">5.6 觸電（electrical injury） <span class="mono" style="font-size:.7em;color:var(--time)">延伸・備課用</span></h3>
+  <div class="duo">
+    <div class="g"><h4>指引說</h4>
+      <div class="recs">
+        <div class="rec k1"><div class="badge"><span class="cor">1</span><span class="loe">C-EO</span></div><div>
+          <div class="zh">觸電造成心跳停止的成人與兒童，給予<b>標準急救</b>。</div>
+          <div class="en">Adults and children in cardiac arrest due to electrical injury should receive standard resuscitation.</div>
+          <div class="ref">Part 10・Electrocution #1</div></div></div>
+      </div>
+      <span class="lab lab-sh">電擊／AED</span>
+      <ul class="dl">
+        <li>照護主軸是標準 BLS／ALS，包含<b>快速電擊</b>、高品質 CPR，以及<b>施救者的現場安全</b>。觸電後可見 AF、VF、VT、PEA 等心律不整。<span class="tag t-sup">支持文字</span></li>
+        <li>有成人與兒童案例在長時間 CPR（最長 70 分鐘）後神經學預後良好。<span class="tag t-sup">支持文字</span></li>
+      </ul>
+      <span class="lab lab-rx">藥物</span>
+      <ul class="dl"><li>Part 10 沒有觸電專屬的藥物條文；燒傷、心肌損傷、外傷不在這條的範圍。</li></ul>
+    </div>
+    <div class="c"><h4>課堂怎麼教</h4>
+      <p><b>一句話</b>：先斷電、確定安全，然後就是一般 CPR＋AED，而且<b>不要太早放棄</b>。</p>
+      <p style="font-size:.9em">怎麼斷電、高壓電要離多遠，屬於現場安全與救災規範，不在本頁。<span class="tag t-tbd">待查證：消防／台電規範</span></p>
+    </div>
+  </div>
+
+  <!-- 5.7 Precordial thump etc (v4.5) -->
+  <h3 id="thump">5.7 不能取代 AED 的手法：心前區捶擊、咳嗽 CPR <span class="mono" style="font-size:.7em;color:var(--time)">延伸・備課用</span></h3>
+  <div class="duo">
+    <div class="g"><h4>指引說</h4>
+      <div class="recs">
+        <div class="rec k3"><div class="badge"><span class="cor">3</span><span class="loe">B-NR</span></div><div>
+          <div class="zh">成人心跳停止<b>不要做心前區捶擊</b>。無益。（兒童同一條為 <span class="pill p3">3: No Benefit C-EO</span>）</div>
+          <div class="en">A precordial thump should not be performed on adults in cardiac arrest. (3: No Benefit)</div>
+          <div class="ref">Part 10・Precordial Thump #1／#2</div></div></div>
+        <div class="rec k3"><div class="badge"><span class="cor">3</span><span class="loe">C-EO</span></div><div>
+          <div class="zh">成人心跳停止<b>不要常規做拳擊節律（percussion pacing）</b>。無益。</div>
+          <div class="en">Percussion pacing should not be performed routinely in adults in cardiac arrest. (3: No Benefit)</div>
+          <div class="ref">Part 10・Percussion Pacing #2</div></div></div>
+        <div class="rec k2b"><div class="badge"><span class="cor">2b</span><span class="loe">C-LD</span></div><div>
+          <div class="zh">咳嗽 CPR 只限：院內、有目擊、有監測（如心導管室、ICU）、病人還清醒時剛發生的嚴重心律不整，當作暫時措施，而且<b>不能延誤確定治療</b>。</div>
+          <div class="en">Cough CPR may be reasonable as a temporizing measure in the witnessed, monitored, in-hospital (eg, cardiac intervention laboratory or ICU), onset of a hemodynamically significant tachyarrhythmia or bradyarrhythmia before loss of consciousness and if performed without delaying definitive therapy in adults.</div>
+          <div class="ref">Part 10・Cough CPR #1</div></div></div>
+        <div class="rec k3"><div class="badge"><span class="cor">3</span><span class="loe">C-EO</span></div><div>
+          <div class="zh">有致命心律不整的成人<b>不要常規做咳嗽 CPR</b>。無益。</div>
+          <div class="en">Cough CPR should not be performed routinely by adults with life-threatening arrhythmias. (3: No Benefit)</div>
+          <div class="ref">Part 10・Cough CPR #2</div></div></div>
+      </div>
+      <ul class="dl"><li>心前區捶擊如果剛好落在 T 波（心電易感期），可能讓節律惡化。<span class="tag t-sup">Part 10 概述</span></li></ul>
+    </div>
+    <div class="c"><h4>課堂怎麼教</h4>
+      <p><b>一句話</b>：電擊只能靠電擊器；捶胸、叫病人咳嗽都不是 AED 的替代品。</p>
+      <p style="font-size:.9em">網路上流傳的「心臟病發作時用力咳嗽自救」，正好可以用這條澄清：只有院內、有監測、清醒的特定情境才「可以考慮」。<span class="tag t-conv">建議</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 06 TEN ============ -->
+<section class="ch" id="ten" data-nav="十句話">
+  <div class="chhead"><span class="num">06</span><h2>帶得走的十句話</h2></div>
+  <ol class="takeaways">
+    <li><div>10 秒內<b>同時</b>看呼吸、摸頸動脈；沒有「確定」摸到，就開始壓。<small>Part 7 <span class="pill p1">1 C-LD</span></small></div></li>
+    <li><div>疑頸椎先推下顎；加了輔助器還打不開，就壓額抬下巴——氣進得去比頸椎重要。<small>Part 7 <span class="pill p1">1 C-EO</span></small></div></li>
+    <li><div>BVM 看到胸部起伏就好、每口約 1 秒；兩個人做比一個人好。<small>Part 7 <span class="pill p2a">2a C-LD</span> <span class="pill p2b">2b C-LD</span></small></div></li>
+    <li><div>沒有進階呼吸道做 30:2；有進階呼吸道每 6 秒 1 口、持續壓。<small>Part 7 <span class="pill p2a">2a B-NR</span>・Part 9 <span class="pill p2b">2b C-LD</span></small></div></li>
+    <li><div>CCF 至少 60%；每 2 分鐘換手；能在原地做好就原地做，邊搬邊壓品質會掉。<small>Part 7・Part 4</small></div></li>
+    <li><div>有脈搏沒正常呼吸：每 6 秒 1 口、每 2 分鐘摸脈；疑鴉片類給拮抗劑，但不能耽誤通氣與 CPR。<small>Part 7・Part 10</small></div></li>
+    <li><div>成人嚴重哽塞：5 背擊 → 5 腹戳，循環；孕婦或抱不住改胸戳；倒下就壓，看得到才拿、不盲掏。<small>Part 7 <span class="pill p1">1 B-NR</span> <span class="pill p3">3: Harm</span></small></div></li>
+    <li><div>溺水是缺氧：CPR 一定要有吹氣，先 CPR 再貼 AED。<small>Part 10 <span class="pill p1">1 B-NR</span></small></div></li>
+    <li><div>創傷沒脈搏：AHA 沒有創傷專屬流程，照一般 CPR＋AED；頭頸創傷用推下顎；一般 TOR 規則不適用，邊做邊準備運送。<small>Part 7 <span class="pill p1">1 C-LD／C-EO</span>・Part 4・Part 9 支持文字</small></div></li>
+    <li><div>孕婦：手把子宮往左推、呼吸道優先、照常電擊；一確認就準備，5 分鐘內完成 resuscitative delivery。<small>Part 10 <span class="pill p1">1 B-NR／C-LD</span></small></div></li>
+  </ol>
+</section>
+
+<!-- ============ 07 TAIWAN ============ -->
+<section class="ch" id="tw" data-nav="台灣落地">
+  <div class="chhead"><span class="num">07</span><h2>台灣落地補充</h2></div>
+  <div class="tw-local">
+    <p>這一節<b>不是指引原文</b>，是本地實務提醒；標「待查證」的請以消防署、衛福部與各院現行規定為準。</p>
+    <ul>
+      <li><b>求救管道</b>：院外打 119；院內依各院急救廣播代碼與流程（各院不同，課堂請改成學員所屬醫院的代碼）。</li>
+      <li><b>搬運</b>：台灣救護常用搬運毯（軟式擔架）上下樓梯。指引立場是「多數 OHCA 先在現場做到持續 ROSC 再走」（Part 4），但公寓樓梯、狹窄空間常常不得不移動；課堂的搬運毯任務就是要讓學員親眼看到中斷有多長。各縣市 OHCA 現場停留時間規範 <span class="tag t-tbd">待查證</span>。</li>
+      <li><b>機械式 CPR</b>：部分救護車或醫院有配備。指引不建議常規使用，但運送中、人力不足等情境可以考慮；重點是裝與拆的中斷要短。各縣市配置 <span class="tag t-tbd">待查證</span>。</li>
+      <li><b>Naloxone</b>：台灣民眾目前不容易取得（TCH-007 選材評估的看法）；救護技術員可否給藥、劑量與途徑，依《救護技術員管理辦法》與各地醫療指導 protocol <span class="tag t-tbd">待查證</span>。院內依醫囑。</li>
+      <li><b>頸圈</b>：Part 7 的 3: Harm 只針對<b>一般民眾</b>使用硬式頸圈；專業人員到院前的脊椎動作限制依消防署規範 <span class="tag t-tbd">待查證</span>。</li>
+      <li><b>孕婦 OHCA</b>：通報 119 與醫院時，講清楚「懷孕」與「肚子大概到肚臍以上」，讓急診與婦產科在病人到院前就準備 resuscitative delivery 與新生兒急救。</li>
+      <li><b>創傷</b>：台灣到院前多為 EMT-1／EMT-2／EMT-P，醫院端的開胸、REBOA 等不在範圍；能做的是加壓止血、止血帶、呼吸道與通氣、儘早通知與快送。各級救護技術員可執行項目以《救護技術員管理辦法》為準 <span class="tag t-tbd">待查證</span>。</li>
+      <li><b>交班</b>：台灣救護交班是否有統一格式 <span class="tag t-tbd">待查證</span>；本課用 IMIST-AMBO 當練習框架。</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ 08 REFS ============ -->
+<section class="ch" id="refs" data-nav="參考">
+  <div class="chhead"><span class="num">08</span><h2>常用縮寫與參考資料</h2></div>
+  <dl class="abbr">
+    <dt>BVM</dt><dd>bag-valve-mask，甦醒球</dd>
+    <dt>CCF</dt><dd>chest compression fraction，按壓時間比例</dd>
+    <dt>COR／LOE</dt><dd>class of recommendation／level of evidence</dd>
+    <dt>IM</dt><dd>intramuscular，肌肉注射</dd>
+    <dt>FBAO</dt><dd>foreign-body airway obstruction，異物哽塞</dd>
+    <dt>LUD</dt><dd>left lateral uterine displacement，左推子宮</dd>
+    <dt>PAD</dt><dd>public access defibrillation，公眾 AED 計畫</dd>
+    <dt>OPA／NPA</dt><dd>口咽／鼻咽呼吸道</dd>
+    <dt>ROSC</dt><dd>return of spontaneous circulation</dd>
+    <dt>TCA</dt><dd>traumatic cardiac arrest，創傷性心跳停止</dd>
+    <dt>TOR</dt><dd>termination of resuscitation，終止急救</dd>
+  </dl>
+  <ol class="refs">
+    <li>Kleinman ME, Buick JE, Huber N, et al. Part 7: Adult Basic Life Support: 2025 AHA Guidelines for CPR and ECC. <i>Circulation</i>. 2025;152(suppl 2):S448–S478. <a href="https://www.ahajournals.org/doi/10.1161/CIR.0000000000001369">ahajournals</a>・<a href="https://cpr.heart.org/en/resuscitation-science/cpr-and-ecc-guidelines/adult-basic-life-support">cpr.heart.org</a></li>
+    <li>Cao D, et al. Part 10: Adult and Pediatric Special Circumstances of Resuscitation: 2025 AHA Guidelines for CPR and ECC. <i>Circulation</i>. 2025;152(suppl 2):S578–S672. <a href="https://doi.org/10.1161/CIR.0000000000001380">doi</a>・<a href="https://cpr.heart.org/en/resuscitation-science/cpr-and-ecc-guidelines/adult-and-pediatric-special-circumstances-of-resuscitation">cpr.heart.org</a>・孕婦演算法 <a href="https://cpr.heart.org/-/media/CPR-Files/CPR-Guidelines-Files/2025-Accessible/Algorithm-BLS-in-Pregnancy-LngDscrp-250725-Ed.pdf">accessible PDF</a></li>
+    <li>Joyner BL Jr, et al. Part 6: Pediatric Basic Life Support: 2025 AHA/AAP Guidelines for CPR and ECC. <i>Circulation</i>. 2025;152(suppl 2):S424–S447. <a href="https://doi.org/10.1161/CIR.0000000000001370">doi</a></li>
+    <li>AHA. Part 9: Adult Advanced Life Support（2025）. <a href="https://www.ahajournals.org/doi/10.1161/CIR.0000000000001376">doi:10.1161/CIR.0000000000001376</a>・<a href="https://cpr.heart.org/en/resuscitation-science/cpr-and-ecc-guidelines/adult-advanced-life-support">cpr.heart.org</a></li>
+    <li>AHA. Part 4: Systems of Care（2025）. <a href="https://cpr.heart.org/en/resuscitation-science/cpr-and-ecc-guidelines/systems-of-care">cpr.heart.org</a></li>
+    <li>Part 12: Resuscitation Education Science: 2025 AHA Guidelines for CPR and ECC. <i>Circulation</i>. 2025. <a href="https://doi.org/10.1161/CIR.0000000000001374">doi:10.1161/CIR.0000000000001374</a>・<a href="https://cpr.heart.org/en/resuscitation-science/cpr-and-ecc-guidelines/resuscitation-education-science">cpr.heart.org</a></li>
+    <li>Greif R, Cheng A, et al. Education, Implementation, and Teams: 2025 International Liaison Committee on Resuscitation Consensus on Science With Treatment Recommendations. <i>Circulation</i>. 2025. <a href="https://doi.org/10.1161/CIR.0000000000001359">doi:10.1161/CIR.0000000000001359</a></li>
+    <li>AHA. Highlights of the 2025 AHA Guidelines for CPR and ECC. <a href="https://cpr.heart.org/-/media/CPR-Files/2025-documents-for-cpr-heart-edits-posting/Resuscitation-Science/252500_Hghlghts_2025ECCGuidelines.pdf">PDF</a></li>
+    <li>Lott C, Karageorgos V, Abelairas-Gomez C, et al. European Resuscitation Council Guidelines 2025 Special Circumstances in Resuscitation. <i>Resuscitation</i>. 2025;215(Suppl 1):110753. <a href="https://doi.org/10.1016/j.resuscitation.2025.110753">doi:10.1016/j.resuscitation.2025.110753</a></li>
+    <li>Iedema R, Ball C, Daly B, et al. Design and trial of a new ambulance-to-emergency department handover protocol: 'IMIST-AMBO'. <i>BMJ Qual Saf</i>. 2012;21(8):627–633. <a href="https://pubmed.ncbi.nlm.nih.gov/22626739/">PubMed</a></li>
+    <li>Shah Y, Alinier G, Pillay Y. Clinical handover between paramedics and emergency department staff: SBAR and IMIST-AMBO acronyms. <i>Int Paramedic Pract</i>. 2016. <a href="https://www.internationaljpp.com/content/features/clinical-handover-between-paramedics-and-emergency-department-staff-sbar-and-imist-ambo-acronyms">連結</a></li>
+    <li>American Heart Association. <i>Advanced Cardiovascular Life Support Provider Manual</i>. © 2025 American Heart Association（International English edition; ISBN 978-1-68472-445-1）. Part 3 High-Performance Teams（p95–103、p121–122）；Part 1 CQI／Systems of Care（p6–10）。教科書，非指引，無 COR/LOE。</li>
+    <li>American Heart Association and American Red Cross. 2024 Guidelines for First Aid. <i>Circulation</i>. 2024. <a href="https://doi.org/10.1161/CIR.0000000000001281">doi:10.1161/CIR.0000000000001281</a>・<a href="https://cpr.heart.org/en/resuscitation-science/2024-first-aid-guidelines">cpr.heart.org</a>（5.5 自動注射筆條文）</li>
+    <li>AHA. Part 4: The Automated External Defibrillator（Guidelines 2000）. <i>Circulation</i>. 2000;102(suppl 1):I-60. <a href="https://www.ahajournals.org/doi/10.1161/circ.102.suppl_1.i-60">ahajournals</a>（舊版，僅作 5.2「擦乾胸口」出處追溯）</li>
+    <li>AHRQ. TeamSTEPPS Tool: SBAR. <a href="https://www.ahrq.gov/teamstepps-program/curriculum/communication/tools/sbar.html">ahrq.gov</a></li>
+  </ol>
+  <div class="footer">
+    <p>本頁為教學用整理，非臨床指引原文；臨床處置依所屬單位規範、醫囑與線上醫療指導。圖片 © 2025 American Heart Association，僅供教學使用。</p>
+    <p>v4.6・2026-11-11（v4.6 全面以 AHA 為主：AHA 和 ERC 說法不同處，主文與課堂建議照 AHA，ERC 降成灰色「ERC 參考」；拿掉「依單位規範」「兩邊並列」）・v4.5・2026-11-11（特殊情境 5.1–5.3 各加「藥物與電擊」補充；新增 5.4 鴉片類 naloxone、5.5 過敏性休克自動注射筆、5.6 觸電、5.7 不能取代 AED 的手法）・v4.4・2026-11-11（新增 ACLS Provider Manual 2025 Part 3 高效能團隊）・v4.3・2026-11-11（5.3 孕婦段落加入 Part 10 Figure 6 左推子宮原圖）・v4.2・2026-11-11（移除對照表小註）・v4.1・2026-11-11（3.1.1 對照表「叫：判斷意識」列修正：兩版都要先確認現場安全）・v4・2026-11-11（3.1 新增 3.1.1「專業人員版 vs 民眾版」對照表與民眾版原圖）・v3・2026-11-11（3 章 BLS 流程圖改為中文教學翻譯版，英文原圖收在下方）・v2・2026-11-11（新增 3.5.1 團隊合作條文、5.1 改 AHA／ERC 並列、時間改 125 分鐘）・v1・2026-11-09・講師：焜哥（急診主治、BLS/ACLS 講師）・TCH-013</p>
+  </div>
+</section>
+</main>
+</div>
+
+<script>
+(function(){
+  var root=document.documentElement;
+  // 原文切換
+  var be=document.getElementById('btnEn');
+  be.addEventListener('click',function(){var on=root.classList.toggle('show-en');be.setAttribute('aria-pressed',on)});
+  // 深色切換（預設跟隨系統）
+  var bt=document.getElementById('btnTheme');
+  function isDark(){var t=root.getAttribute('data-theme');if(t)return t==='dark';return matchMedia('(prefers-color-scheme: dark)').matches}
+  function sync(){bt.setAttribute('aria-pressed',isDark());bt.textContent=isDark()?'淺色':'深色'}
+  bt.addEventListener('click',function(){root.setAttribute('data-theme',isDark()?'light':'dark');sync()});
+  sync();
+  // 流程點開
+  document.querySelectorAll('.ftog').forEach(function(b){
+    b.addEventListener('click',function(){
+      var open=b.getAttribute('aria-expanded')!=='true';
+      b.setAttribute('aria-expanded',open);
+      document.getElementById(b.getAttribute('aria-controls')).setAttribute('data-open',open);
+    });
+  });
+  // 手機膠囊導覽
+  var chip=document.getElementById('chipnav');
+  var secs=[].slice.call(document.querySelectorAll('section[data-nav]'));
+  secs.forEach(function(s){var a=document.createElement('a');a.href='#'+s.id;a.textContent=s.dataset.nav;chip.appendChild(a)});
+  // 捲動高亮
+  var targets=secs.concat([].slice.call(document.querySelectorAll('h3[id]')));
+  var railLinks=document.querySelectorAll('.rail a'), chipLinks=chip.querySelectorAll('a');
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(!e.isIntersecting)return;
+      var id=e.target.id;
+      railLinks.forEach(function(a){a.classList.toggle('on',a.getAttribute('href')==='#'+id)});
+      var sec=e.target.tagName==='SECTION'?e.target:e.target.closest('section');
+      chipLinks.forEach(function(a){var on=a.getAttribute('href')==='#'+sec.id;a.classList.toggle('on',on);if(on){chip.scrollTo({left:a.offsetLeft-20,behavior:'smooth'})}});
+    });
+  },{rootMargin:'-15% 0px -70% 0px'});
+  targets.forEach(function(t){io.observe(t)});
+  // 列印時展開流程
+  window.addEventListener('beforeprint',function(){document.querySelectorAll('.fbody').forEach(function(f){f.setAttribute('data-open','true')})});
+})();
+</script>
+</body>
+</html>

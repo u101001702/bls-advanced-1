@@ -1,0 +1,140 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1180 1456" width="100%" preserveAspectRatio="xMidYMin meet" role="img" aria-labelledby="t d">
+  <title id="t">2025 AHA 醫療專業人員版成人 BLS 流程圖（中文教學版）</title>
+  <desc id="d">確認現場安全 → 檢查反應並啟動緊急應變 → 判斷呼吸與脈搏 → 依結果持續監測、給予人工呼吸或開始 CPR → AED 到達後判讀心律，可電擊則電擊後恢復 CPR，不可電擊則立即恢復 CPR，每 2 分鐘重新判讀。</desc>
+  <defs>
+    <linearGradient id="gGreen" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e6f2d3"/><stop offset="1" stop-color="#c3df98"/></linearGradient>
+    <linearGradient id="gOrange" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fdebd3"/><stop offset="1" stop-color="#fbbd78"/></linearGradient>
+    <linearGradient id="gPink" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fbdde1"/><stop offset="1" stop-color="#f3a2ad"/></linearGradient>
+    <linearGradient id="gBlue" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#dfedf9"/><stop offset="1" stop-color="#9cc7ec"/></linearGradient>
+    <linearGradient id="gGray" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f6f6f6"/><stop offset="1" stop-color="#d6d6d6"/></linearGradient>
+    <marker id="arr" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto">
+      <path d="M0,1 L12,6 L0,11 L3,6 Z" fill="#222"/>
+    </marker>
+    <style>
+      text { font-family: "Noto Sans TC", "PingFang TC", sans-serif; fill: #222; }
+      .b18 { font-size: 18px; }
+      .b17 { font-size: 17px; }
+      .c { text-anchor: middle; }
+      .lbl { font-size: 18px; font-weight: 700; fill: #c8102e; text-anchor: middle; }
+      .ttl { font-size: 19px; font-weight: 700; }
+      .note { font-size: 17px; }
+      .small { font-size: 13px; fill: #444; }
+      .line { stroke: #222; stroke-width: 2; fill: none; }
+    </style>
+  </defs>
+
+  <rect width="1180" height="1456" fill="#fff"/>
+
+  <!-- 1. 確認現場安全 -->
+  <rect x="390" y="6" width="250" height="52" rx="16" fill="url(#gGreen)" stroke="#6aa53a" stroke-width="1.5"/>
+  <text x="515" y="39" class="b18 c">確認現場安全。</text>
+  <line x1="510" y1="58" x2="510" y2="96" class="line" marker-end="url(#arr)"/>
+
+  <!-- 2. 檢查反應 -->
+  <rect x="290" y="98" width="440" height="138" rx="18" fill="url(#gOrange)" stroke="#ef9d48" stroke-width="1.5"/>
+  <g class="b18">
+    <text x="318" y="133">•</text><text x="338" y="133">檢查有無反應</text>
+    <text x="318" y="161">•</text><text x="338" y="161">大聲呼叫附近的人幫忙</text>
+    <text x="318" y="189">•</text><text x="338" y="189">啟動緊急應變系統</text>
+    <text x="318" y="217">•</text><text x="338" y="217">請人拿 AED 或除顫器</text>
+  </g>
+  <line x1="510" y1="236" x2="510" y2="290" class="line" marker-end="url(#arr)"/>
+
+  <!-- 3. 判斷呼吸與脈搏 -->
+  <polygon points="330,373 400,292 620,292 690,373 620,454 400,454" fill="url(#gPink)" stroke="#d9475a" stroke-width="1.5"/>
+  <g class="b17 c">
+    <text x="510" y="334">看是否沒有呼吸或只有喘息</text>
+    <text x="510" y="361">（瀕死式呼吸），並同時檢查</text>
+    <text x="510" y="388">脈搏。10 秒內是否「<tspan font-weight="700">確定</tspan>」</text>
+    <text x="510" y="415">摸到脈搏？</text>
+  </g>
+
+  <!-- 左：呼吸正常、有脈搏 -->
+  <text x="268" y="312" class="lbl" dx="9">呼吸正常、</text>
+  <text x="268" y="338" class="lbl">有脈搏</text>
+  <line x1="330" y1="373" x2="208" y2="373" class="line" marker-end="url(#arr)"/>
+  <rect x="16" y="318" width="190" height="110" rx="18" fill="url(#gGreen)" stroke="#6aa53a" stroke-width="1.5"/>
+  <g class="b18 c">
+    <text x="111" y="358">持續監測，直到</text>
+    <text x="111" y="384">進階救護人員</text>
+    <text x="111" y="410">到達。</text>
+  </g>
+
+  <!-- 右：呼吸異常、有脈搏 -->
+  <text x="756" y="312" class="lbl" dx="9">呼吸異常、</text>
+  <text x="756" y="338" class="lbl">有脈搏</text>
+  <line x1="690" y1="373" x2="822" y2="373" class="line" marker-end="url(#arr)"/>
+  <rect x="824" y="270" width="346" height="210" rx="18" fill="url(#gGreen)" stroke="#6aa53a" stroke-width="1.5"/>
+  <g class="b17">
+    <text x="844" y="300">•</text><text x="862" y="300">給予人工呼吸，每 6 秒 1 口</text>
+    <text x="862" y="325">（每分鐘 10 口）</text>
+    <text x="844" y="354">•</text><text x="862" y="354">每 2 分鐘檢查一次脈搏；</text>
+    <text x="862" y="379">若無脈搏，開始 CPR</text>
+    <text x="844" y="408">•</text><text x="862" y="408">若懷疑鴉片類藥物過量，</text>
+    <text x="862" y="433">有的話給予鴉片類拮抗劑</text>
+    <text x="862" y="458">（例如 naloxone）</text>
+  </g>
+
+  <!-- 下：沒有呼吸或只有喘息、沒有脈搏 -->
+  <text x="400" y="512" class="lbl">沒有呼吸或</text>
+  <text x="400" y="538" class="lbl" dx="9">只有喘息、</text>
+  <text x="400" y="564" class="lbl">沒有脈搏</text>
+  <line x1="510" y1="454" x2="510" y2="652" class="line" marker-end="url(#arr)"/>
+
+  <!-- 4. 開始 CPR -->
+  <rect x="316" y="654" width="388" height="222" rx="18" fill="url(#gBlue)" stroke="#2f6fb5" stroke-width="1.5"/>
+  <text x="510" y="686" class="ttl c">開始 CPR</text>
+  <g class="b18">
+    <text x="336" y="716">•</text><text x="356" y="716">以 30 次按壓、2 次人工呼吸</text>
+    <text x="356" y="742">為一循環</text>
+    <text x="336" y="772">•</text><text x="356" y="772">AED 或除顫器一到立刻使用</text>
+    <text x="336" y="802">•</text><text x="356" y="802">若懷疑鴉片類藥物過量，考慮</text>
+    <text x="356" y="828">給予鴉片類拮抗劑</text>
+    <text x="356" y="854">（例如 naloxone）</text>
+  </g>
+  <line x1="510" y1="876" x2="510" y2="918" class="line" marker-end="url(#arr)"/>
+
+  <!-- 5. AED 到達 -->
+  <rect x="392" y="920" width="236" height="52" rx="16" fill="url(#gGray)" stroke="#9a9a9a" stroke-width="1.5"/>
+  <text x="510" y="953" class="b18 c">AED 到達。</text>
+  <line x1="510" y1="972" x2="510" y2="1016" class="line" marker-end="url(#arr)"/>
+
+  <!-- 6. 判讀心律 -->
+  <polygon points="346,1061 410,1018 610,1018 674,1061 610,1104 410,1104" fill="url(#gPink)" stroke="#d9475a" stroke-width="1.5"/>
+  <g class="b18 c">
+    <text x="510" y="1054">判讀心律。</text>
+    <text x="510" y="1081">是否為可電擊心律？</text>
+  </g>
+
+  <!-- 是，可電擊 -->
+  <text x="290" y="1112" class="lbl" dx="9">是，</text>
+  <text x="290" y="1138" class="lbl">可電擊</text>
+  <line x1="388" y1="1089" x2="338" y2="1166" class="line" marker-end="url(#arr)"/>
+  <rect x="100" y="1168" width="382" height="170" rx="18" fill="url(#gBlue)" stroke="#2f6fb5" stroke-width="1.5"/>
+  <g class="b18">
+    <text x="122" y="1200">•</text><text x="142" y="1200">電擊 1 次，立即恢復 CPR 2 分鐘</text>
+    <text x="142" y="1226">（直到 AED／除顫器提示</text>
+    <text x="142" y="1252">分析心律）</text>
+    <text x="122" y="1284">•</text><text x="142" y="1284">持續進行，直到進階救護人員</text>
+    <text x="142" y="1310">接手或病人開始有動作。</text>
+  </g>
+  <polyline points="100,1242 75,1242 75,1061 344,1061" class="line" marker-end="url(#arr)"/>
+
+  <!-- 否，不可電擊 -->
+  <text x="752" y="1112" class="lbl" dx="9">否，</text>
+  <text x="752" y="1138" class="lbl">不可電擊</text>
+  <line x1="632" y1="1089" x2="682" y2="1166" class="line" marker-end="url(#arr)"/>
+  <rect x="538" y="1168" width="382" height="146" rx="18" fill="url(#gBlue)" stroke="#2f6fb5" stroke-width="1.5"/>
+  <g class="b18">
+    <text x="560" y="1200">•</text><text x="580" y="1200">立即恢復 CPR 2 分鐘（直到</text>
+    <text x="580" y="1226">AED／除顫器提示分析心律）</text>
+    <text x="560" y="1258">•</text><text x="580" y="1258">持續進行，直到進階救護人員</text>
+    <text x="580" y="1284">接手或病人開始有動作。</text>
+  </g>
+  <polyline points="920,1242 945,1242 945,1061 676,1061" class="line" marker-end="url(#arr)"/>
+
+  <!-- 註腳 -->
+  <text x="4" y="1380" class="note">*若已有青春期徵象，依成人處理。</text>
+  <text x="4" y="1418" class="small">改繪自 2025 AHA Adult BLS Algorithm for Healthcare Professionals（Kleinman ME, et al. Circulation 2025;152(suppl 2):S448–S478）</text>
+  <text x="4" y="1438" class="small">© 2025 American Heart Association。中文為教學翻譯，非 AHA 官方譯本，僅供教學使用。</text>
+</svg>
